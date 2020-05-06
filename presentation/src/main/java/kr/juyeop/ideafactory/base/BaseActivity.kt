@@ -14,14 +14,16 @@ import java.util.*
 abstract class BaseActivity <VB : ViewDataBinding, VM : BaseViewModel> : AppCompatActivity() {
 
     private lateinit var binding : VB
-    protected lateinit var viewModel : VM
+    protected abstract val viewModel : VM
 
+    protected abstract fun init()
     protected abstract fun observerViewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         performDataBinding()
         observerViewModel()
+        init()
     }
 
     private fun performDataBinding(){

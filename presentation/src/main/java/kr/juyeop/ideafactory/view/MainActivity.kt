@@ -1,7 +1,8 @@
-package kr.juyeop.ideafactory
+package kr.juyeop.ideafactory.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import kr.juyeop.ideafactory.R
 
 class MainActivity : AppCompatActivity() {
 

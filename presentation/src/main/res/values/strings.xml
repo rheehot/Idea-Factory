@@ -1,3 +1,15 @@
 <resources>
+
+    <!--AppName-->
     <string name="app_name">Idea Factory</string>
+
+    <!--Toast-->
+    <string name="onFailEvent">입력한 내용을 다시 확인해주세요.</string>
+    <string name="onSuccessEvent">정상적으로 수행되었습니다.</string>
+
+    <!--NameActivity-->
+    <string name="FactoryName_textView">당신의 소중한 아이디어를 생산하고 보관할\n공장의 이름을 입력해주세요.</string>
+    <string name="FactoryName_editText">Ex) 아이디어 팩토리</string>
+    <string name="Complete_button">완료</string>
+
 </resources>

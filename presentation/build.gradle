@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 29
@@ -47,10 +48,15 @@ dependencies {
     implementation project(':data')
 
     // ViewModel & LiveData
-    implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
-    implementation "androidx.lifecycle:lifecycle-livedata:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel:$rootProject.lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-livedata:$rootProject.lifecycle_version"
 
     // RX Java
     implementation "io.reactivex.rxjava2:rxandroid:$rootProject.rxandroid_version"
     implementation "io.reactivex.rxjava2:rxjava:$rootProject.rxjava2_version"
+
+    // Koin
+    implementation "org.koin:koin-androidx-scope:$rootProject.koin_version"
+    implementation "org.koin:koin-androidx-viewmodel:$rootProject.koin_version"
+    implementation "org.koin:koin-androidx-ext:$rootProject.koin_version"
 }

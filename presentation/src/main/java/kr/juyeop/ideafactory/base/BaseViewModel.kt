@@ -12,7 +12,7 @@ import io.reactivex.observers.DisposableCompletableObserver
 import io.reactivex.observers.DisposableObserver
 import io.reactivex.schedulers.Schedulers
 
-class BaseViewModel : ViewModel() {
+open class BaseViewModel : ViewModel() {
 
     private val disposable = CompositeDisposable()
 
