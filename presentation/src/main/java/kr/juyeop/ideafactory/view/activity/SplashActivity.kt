@@ -1,4 +1,4 @@
-package kr.juyeop.ideafactory.view
+package kr.juyeop.ideafactory.view.activity
 
 import android.content.Intent
 import android.os.Handler

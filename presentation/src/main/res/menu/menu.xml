@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/home"
+        android:title="홈"
+        android:icon="@drawable/ic_home_black_24dp"/>
+
+    <item
+        android:id="@+id/search"
+        android:title="검색"
+        android:icon="@drawable/ic_search_black_24dp"/>
+
+    <item
+        android:id="@+id/shop"
+        android:title="장터"
+        android:icon="@drawable/ic_shopping_cart_black_24dp"/>
+
+    <item
+        android:id="@+id/chat"
+        android:title="채팅"
+        android:icon="@drawable/ic_chat_bubble_black_24dp"/>
+
+</menu>
