@@ -1,15 +1,15 @@
 package kr.juyeop.ideafactory.view.fragment
 
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import kr.juyeop.ideafactory.R
+import kr.juyeop.ideafactory.base.BaseFragment
+import kr.juyeop.ideafactory.databinding.FragmentHomeBinding
+import kr.juyeop.ideafactory.viewmodel.HomeViewModel
+import org.koin.androidx.viewmodel.ext.android.getViewModel
 
-class HomeFragment : Fragment() {
+class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_home, container, false)
-    }
+    override val viewModel: HomeViewModel
+        get() = getViewModel(HomeViewModel::class)
+
+    override fun init() {}
+    override fun observerViewModel() {}
 }

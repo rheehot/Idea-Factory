@@ -2,7 +2,7 @@ package kr.juyeop.ideafactory.view.activity
 
 import android.content.Intent
 import android.os.Handler
-import kr.juyeop.data.SharedPreferencesManager
+import kr.juyeop.data.sharedpreferences.SharedPreferencesManager
 import kr.juyeop.ideafactory.base.BaseActivity
 import kr.juyeop.ideafactory.databinding.ActivitySplashBinding
 import kr.juyeop.ideafactory.viewmodel.SplashViewModel

@@ -2,7 +2,7 @@ package kr.juyeop.ideafactory.view.activity
 
 import android.content.Intent
 import androidx.lifecycle.Observer
-import kr.juyeop.data.SharedPreferencesManager
+import kr.juyeop.data.sharedpreferences.SharedPreferencesManager
 import kr.juyeop.ideafactory.R
 import kr.juyeop.ideafactory.base.BaseActivity
 import kr.juyeop.ideafactory.databinding.ActivityNameBinding
