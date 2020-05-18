@@ -1,22 +1,22 @@
 package kr.juyeop.data.database.dao
 
-import androidx.room.*
+import androidx.room.Dao
+import androidx.room.Query
 import io.reactivex.Completable
 import io.reactivex.Single
-import kr.juyeop.data.database.entity.IdeaEntitiy
+import kr.juyeop.data.database.base.BaseDao
+import kr.juyeop.data.database.entity.IdeaEntity
+import java.util.*
 
 @Dao
-interface IdeaDao {
+interface IdeaDao : BaseDao<IdeaEntity>{
 
     @Query("SELECT * FROM idea_table ORDER BY date DESC")
-    fun getAll() : Single<List<IdeaEntitiy>>
+    fun getAll() : Single<List<IdeaEntity>>
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(entity : IdeaEntitiy) : Completable
+    @Query("UPDATE idea_table set name = :name, background = :background, title = :title, content = :content, effect = :effect, date = :date")
+    fun update(name : String, background : String, title : String, content : String, effect : String, date : String) : Completable
 
-    @Update
-    fun update(entity : IdeaEntitiy) : Completable
-
-    @Delete
-    fun delete(entity : IdeaEntitiy) : Completable
+    @Query("DELETE FROM idea_table WHERE date = :date")
+    fun delete(date : String) : Completable
 }

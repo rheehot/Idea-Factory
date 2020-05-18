@@ -1,5 +1,6 @@
 package kr.juyeop.ideafactory.di
 
+import kr.juyeop.ideafactory.viewmodel.HomeViewModel
 import kr.juyeop.ideafactory.viewmodel.MainViewModel
 import kr.juyeop.ideafactory.viewmodel.NameViewModel
 import kr.juyeop.ideafactory.viewmodel.SplashViewModel
@@ -10,4 +11,5 @@ val viewModelModule = module {
     viewModel { SplashViewModel() }
     viewModel { NameViewModel() }
     viewModel { MainViewModel() }
+    viewModel { HomeViewModel() }
 }

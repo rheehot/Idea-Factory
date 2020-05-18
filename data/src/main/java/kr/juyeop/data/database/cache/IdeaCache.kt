@@ -3,20 +3,24 @@ package kr.juyeop.data.database.cache
 import android.app.Application
 import io.reactivex.Completable
 import io.reactivex.Single
-import kr.juyeop.data.database.RoomDatabase
 import kr.juyeop.data.database.dao.IdeaDao
-import kr.juyeop.data.database.entity.IdeaEntitiy
+import kr.juyeop.data.database.base.BaseCache
+import kr.juyeop.data.database.entity.IdeaEntity
+import java.util.*
 
-class IdeaCache(application: Application){
+class IdeaCache(application : Application) : BaseCache(application){
 
-    private val database = RoomDatabase.getInstance(application)!!
     private val ideaDao : IdeaDao = database.ideaDao()
 
-    fun getAll() : Single<List<IdeaEntitiy>> = ideaDao.getAll()
+    fun getAll() : Single<List<IdeaEntity>> = ideaDao.getAll()
 
-    fun insert(ideaEntitiy: IdeaEntitiy) : Completable = ideaDao.insert(ideaEntitiy)
+    fun insert(ideaEntitiy: IdeaEntity) : Completable = ideaDao.insert(ideaEntitiy)
 
-    fun update(ideaEntitiy: IdeaEntitiy) : Completable = ideaDao.update(ideaEntitiy)
+    fun update(name : String, background : String, title : String, content : String, effect : String, date : String) : Completable {
+        return ideaDao.update(name, background, title, content, effect, date)
+    }
 
-    fun delete(ideaEntitiy: IdeaEntitiy) : Completable = ideaDao.delete(ideaEntitiy)
+    fun delete(date : String) : Completable {
+        return ideaDao.delete(date)
+    }
 }
