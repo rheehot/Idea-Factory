@@ -1,4 +1,4 @@
-package kr.juyeop.data.database.base
+package kr.juyeop.data.base
 
 import android.app.Application
 import kr.juyeop.data.database.RoomDatabase

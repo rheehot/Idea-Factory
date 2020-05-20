@@ -4,9 +4,8 @@ import android.app.Application
 import io.reactivex.Completable
 import io.reactivex.Single
 import kr.juyeop.data.database.dao.IdeaDao
-import kr.juyeop.data.database.base.BaseCache
+import kr.juyeop.data.base.BaseCache
 import kr.juyeop.data.database.entity.IdeaEntity
-import java.util.*
 
 class IdeaCache(application : Application) : BaseCache(application){
 

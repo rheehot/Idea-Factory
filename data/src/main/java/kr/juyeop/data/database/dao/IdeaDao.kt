@@ -4,9 +4,8 @@ import androidx.room.Dao
 import androidx.room.Query
 import io.reactivex.Completable
 import io.reactivex.Single
-import kr.juyeop.data.database.base.BaseDao
+import kr.juyeop.data.base.BaseDao
 import kr.juyeop.data.database.entity.IdeaEntity
-import java.util.*
 
 @Dao
 interface IdeaDao : BaseDao<IdeaEntity>{

@@ -1,4 +1,4 @@
-package kr.juyeop.data.database.base
+package kr.juyeop.data.base
 
 import androidx.room.*
 import io.reactivex.Completable
