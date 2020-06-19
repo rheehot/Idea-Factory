@@ -6,7 +6,7 @@ import kr.juyeop.data.sharedpreferences.SharedPreferencesManager
 import kr.juyeop.ideafactory.R
 import kr.juyeop.ideafactory.base.BaseActivity
 import kr.juyeop.ideafactory.databinding.ActivityNameBinding
-import kr.juyeop.ideafactory.viewmodel.NameViewModel
+import kr.juyeop.ideafactory.viewmodel.activity.NameViewModel
 import kr.juyeop.ideafactory.widget.extension.startActivityWithFinish
 import kr.juyeop.ideafactory.widget.extension.toast
 import org.koin.androidx.viewmodel.ext.android.getViewModel

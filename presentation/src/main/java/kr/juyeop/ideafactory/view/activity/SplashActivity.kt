@@ -5,7 +5,7 @@ import android.os.Handler
 import kr.juyeop.data.sharedpreferences.SharedPreferencesManager
 import kr.juyeop.ideafactory.base.BaseActivity
 import kr.juyeop.ideafactory.databinding.ActivitySplashBinding
-import kr.juyeop.ideafactory.viewmodel.SplashViewModel
+import kr.juyeop.ideafactory.viewmodel.activity.SplashViewModel
 import kr.juyeop.ideafactory.widget.extension.startActivityWithFinish
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 

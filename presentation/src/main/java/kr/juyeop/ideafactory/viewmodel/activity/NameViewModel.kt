@@ -1,4 +1,4 @@
-package kr.juyeop.ideafactory.viewmodel
+package kr.juyeop.ideafactory.viewmodel.activity
 
 import androidx.lifecycle.MutableLiveData
 import kr.juyeop.ideafactory.base.BaseViewModel

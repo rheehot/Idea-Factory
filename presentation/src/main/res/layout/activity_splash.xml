@@ -7,7 +7,7 @@
     <data>
         <variable
             name="viewModel"
-            type="kr.juyeop.ideafactory.viewmodel.SplashViewModel" />
+            type="kr.juyeop.ideafactory.viewmodel.activity.SplashViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

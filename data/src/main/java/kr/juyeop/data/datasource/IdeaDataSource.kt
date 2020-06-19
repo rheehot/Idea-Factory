@@ -6,8 +6,9 @@ import kr.juyeop.data.base.BaseDataSource
 import kr.juyeop.data.database.cache.IdeaCache
 import kr.juyeop.data.database.entity.IdeaEntity
 
-
-abstract class IdeaDataSource (override val cache: IdeaCache) : BaseDataSource<IdeaCache>(){
+class IdeaDataSource (
+    override val cache: IdeaCache
+) : BaseDataSource<IdeaCache>(){
 
     fun getAll() : Single<List<IdeaEntity>> = cache.getAll()
 

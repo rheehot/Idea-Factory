@@ -9,7 +9,7 @@ import kr.juyeop.data.database.entity.IdeaEntity
 
 class IdeaCache(application : Application) : BaseCache(application){
 
-    private val ideaDao : IdeaDao = database.ideaDao()
+    private val ideaDao : IdeaDao = database!!.ideaDao()
 
     fun getAll() : Single<List<IdeaEntity>> = ideaDao.getAll()
 

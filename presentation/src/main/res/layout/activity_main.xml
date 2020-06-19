@@ -7,30 +7,86 @@
     <data>
         <variable
             name="viewModel"
-            type="kr.juyeop.ideafactory.viewmodel.MainViewModel" />
+            type="kr.juyeop.ideafactory.viewmodel.activity.MainViewModel" />
     </data>
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.activity.MainActivity">
+        tools:context=".view.activity.MainActivity"
+        android:orientation="vertical">
 
-        <FrameLayout
-            android:id="@+id/frameLayout"
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@id/bottom_navigation" />
+            android:layout_height="50dp"
+            app:cardCornerRadius="15dp">
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottom_navigation"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Idea Factory"
+                    android:layout_gravity="center"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:menu="@menu/menu"
-            tools:ignore="MissingConstraints"
-            app:itemIconTint="@color/bottom"
-            app:itemTextColor="@color/bottom"
-            android:layout_alignParentBottom="true"/>
+            app:tabGravity="center"
+            app:tabIndicatorColor="#F9A01B"
+            app:tabMode="scrollable">
 
-    </RelativeLayout>
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tab1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="공장재고" />
 
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tab2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="제품검토" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tab3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="거래회사" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tab4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="미팅약속" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tab5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="준비중1" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tab6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="준비중2" />
+
+        </com.google.android.material.tabs.TabLayout>
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#C2C2C2" />
+
+    </LinearLayout>
 </layout>
