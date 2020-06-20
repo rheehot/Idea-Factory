@@ -15,7 +15,7 @@ val viewModelModule = module {
     viewModel { NameViewModel() }
     viewModel { MainViewModel() }
 
-    viewModel { InventoryViewModel() }
+    viewModel { InventoryViewModel(get()) }
     viewModel { ProductViewModel() }
     viewModel { TradingViewModel() }
     viewModel { MeetingViewModel() }

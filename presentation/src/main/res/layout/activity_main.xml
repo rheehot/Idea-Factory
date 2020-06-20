@@ -53,7 +53,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:tabGravity="center"
-            app:tabIndicatorColor="#F9A01B">
+            app:tabIndicatorColor="@color/mainColor"
+            app:tabSelectedTextColor="@color/mainColor">
 
             <com.google.android.material.tabs.TabItem
                 android:id="@+id/tab1"

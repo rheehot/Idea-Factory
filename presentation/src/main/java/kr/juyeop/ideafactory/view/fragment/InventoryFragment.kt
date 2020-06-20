@@ -10,6 +10,6 @@ class InventoryFragment : BaseFragment<FragmentInventoryBinding, InventoryViewMo
     override val viewModel: InventoryViewModel
         get() = getViewModel(InventoryViewModel::class)
 
-    override fun init() {}
+    override fun init() {viewModel.getAll()}
     override fun observerViewModel() {}
 }
