@@ -11,13 +11,11 @@ import kr.juyeop.ideafactory.databinding.ItemIdeaBinding
 
 class IdeaAdapter : RecyclerView.Adapter<IdeaAdapter.ViewHolder>(){
 
-    private lateinit var ideaList : ArrayList<IdeaModel>
-
+    var ideaList = ArrayList<IdeaModel>()
     val clickPosition = MutableLiveData<Int>()
 
     fun setList(list : ArrayList<IdeaModel>){
-        if(::ideaList.isInitialized) return
-        else ideaList = list
+        ideaList = list
     }
 
     class ViewHolder(private val binding : ItemIdeaBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -34,14 +32,15 @@ class IdeaAdapter : RecyclerView.Adapter<IdeaAdapter.ViewHolder>(){
     }
 
     override fun getItemCount(): Int {
-        return if(::ideaList.isInitialized) ideaList.size
-        else 0
+        return ideaList.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         with(holder){
             bind(ideaList[position])
-            itemView.setOnClickListener{clickPosition.value = position}
+            itemView.setOnClickListener{
+                clickPosition.value = position
+            }
         }
     }
 }

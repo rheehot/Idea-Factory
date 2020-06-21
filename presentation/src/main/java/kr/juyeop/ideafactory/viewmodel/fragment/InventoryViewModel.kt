@@ -1,6 +1,5 @@
 package kr.juyeop.ideafactory.viewmodel.fragment
 
-import io.reactivex.observers.DisposableObserver
 import io.reactivex.observers.DisposableSingleObserver
 import kr.juyeop.domain.model.IdeaModel
 import kr.juyeop.domain.usecase.GetAllUseCase
@@ -25,6 +24,15 @@ class InventoryViewModel(
         ideaList.add(ideaModel3)
         ideaList.add(ideaModel4)
         ideaList.add(ideaModel5)
+        ideaList.add(ideaModel5)
+        ideaList.add(ideaModel5)
+        ideaList.add(ideaModel5)
+        ideaList.add(ideaModel5)
+        ideaList.add(ideaModel5)
+        ideaList.add(ideaModel5)
+        ideaList.add(ideaModel5)
+        ideaList.add(ideaModel5)
+
 
         ideaAdapter.setList(ideaList)}
 

@@ -32,16 +32,23 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp">
 
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/ic_baseline_dehaze_24" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="1"
                     android:text="Idea Factory"
                     android:textSize="20sp"
-                    android:layout_weight="1"/>
+                    android:textStyle="bold" />
 
                 <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
                     android:src="@drawable/icon_profile" />
 
             </LinearLayout>
@@ -87,7 +94,7 @@
             android:id="@+id/view"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#C2C2C2" />
+            android:background="#B6B6B6" />
 
         <FrameLayout
             android:id="@+id/frameLayout"
