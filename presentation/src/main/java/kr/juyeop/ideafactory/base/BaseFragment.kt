@@ -16,7 +16,7 @@ import java.util.*
 
 abstract class BaseFragment <VB : ViewDataBinding, VM : BaseViewModel> : Fragment(){
 
-    private lateinit var binding : VB
+    protected lateinit var binding : VB
     protected abstract val viewModel : VM
 
     protected abstract fun init()

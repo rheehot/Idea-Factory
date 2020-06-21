@@ -28,7 +28,7 @@ class NameActivity : BaseActivity<ActivityNameBinding, NameViewModel>() {
             onSuccessEvent.observe(this@NameActivity, Observer {
                 toast(R.string.onSuccessEvent)
                 SharedPreferencesManager.setFactoryName(this@NameActivity, viewModel.factoryName.value.toString())
-                startActivityWithFinish(Intent(applicationContext, MainActivity::class.java))
+                startActivityWithFinish(applicationContext, MainActivity::class.java)
             })
         }
     }

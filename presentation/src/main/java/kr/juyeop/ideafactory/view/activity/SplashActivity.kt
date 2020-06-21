@@ -23,10 +23,10 @@ class SplashActivity : BaseActivity<ActivitySplashBinding, SplashViewModel>() {
         val runnable : Runnable
 
         if(SharedPreferencesManager.getFactoryName(applicationContext).isNullOrEmpty()){
-            runnable = Runnable { startActivityWithFinish(Intent(this, NameActivity::class.java)) }
+            runnable = Runnable { startActivityWithFinish(this, NameActivity::class.java) }
             handler.postDelayed(runnable, 2000)
         }else{
-            runnable = Runnable { startActivityWithFinish(Intent(this, MainActivity::class.java)) }
+            runnable = Runnable { startActivityWithFinish(this, MainActivity::class.java) }
             handler.postDelayed(runnable, 2000)
         }
     }
