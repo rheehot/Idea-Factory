@@ -1,8 +1,7 @@
 package kr.juyeop.ideafactory.view.activity
 
-import android.content.Intent
 import android.os.Handler
-import kr.juyeop.data.sharedpreferences.SharedPreferencesManager
+import androidx.lifecycle.Observer
 import kr.juyeop.ideafactory.base.BaseActivity
 import kr.juyeop.ideafactory.databinding.ActivitySplashBinding
 import kr.juyeop.ideafactory.viewmodel.activity.SplashViewModel
@@ -15,19 +14,24 @@ class SplashActivity : BaseActivity<ActivitySplashBinding, SplashViewModel>() {
         get() = getViewModel(SplashViewModel::class)
 
     @Override
-    override fun observerViewModel() {}
+    override fun init(){
+        viewModel.checkData(applicationContext)
+    }
 
     @Override
-    override fun init(){
+    override fun observerViewModel() {
         val handler = Handler()
-        val runnable : Runnable
+        var runnable : Runnable
 
-        if(SharedPreferencesManager.getFactoryName(applicationContext).isNullOrEmpty()){
-            runnable = Runnable { startActivityWithFinish(this, NameActivity::class.java) }
-            handler.postDelayed(runnable, 2000)
-        }else{
-            runnable = Runnable { startActivityWithFinish(this, MainActivity::class.java) }
-            handler.postDelayed(runnable, 2000)
+        with(viewModel){
+            onFailEvent.observe(this@SplashActivity, Observer {
+                runnable = Runnable { startActivityWithFinish(applicationContext, NameActivity::class.java) }
+                handler.postDelayed(runnable, 2000)
+            })
+            onSuccessEvent.observe(this@SplashActivity, Observer {
+                runnable = Runnable { startActivityWithFinish(applicationContext, MainActivity::class.java) }
+                handler.postDelayed(runnable, 2000)
+            })
         }
     }
 }

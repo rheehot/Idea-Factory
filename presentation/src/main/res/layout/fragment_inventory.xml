@@ -142,7 +142,7 @@
                         android:layout_marginStart="24dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="24dp"
-
+                        app:striped="true"
                         app:bootstrapBrand="success"
                         app:bootstrapProgress="80"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -172,7 +172,7 @@
                         android:layout_marginStart="24dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="24dp"
-
+                        app:striped="true"
                         app:bootstrapBrand="info"
                         app:bootstrapProgress="50"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -202,7 +202,7 @@
                         android:layout_marginStart="24dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="24dp"
-
+                        app:striped="true"
                         app:bootstrapBrand="danger"
                         app:bootstrapProgress="70"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -232,7 +232,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="24dp"
                         android:layout_marginTop="10dp"
-
+                        app:striped="true"
                         android:layout_marginEnd="24dp"
                         app:bootstrapBrand="warning"
                         app:bootstrapProgress="90"
