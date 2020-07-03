@@ -1,6 +1,5 @@
 package kr.juyeop.ideafactory.view.activity
 
-import android.content.Intent
 import androidx.lifecycle.Observer
 import kr.juyeop.data.sharedpreferences.SharedPreferencesManager
 import kr.juyeop.ideafactory.R

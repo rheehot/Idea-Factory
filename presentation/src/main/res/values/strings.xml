@@ -8,9 +8,10 @@
     <string name="onSuccessEvent">정상적으로 수행되었습니다.</string>
 
     <!--NameActivity-->
-    <string name="FactoryName_textView">당신의 소중한 아이디어를 생산하고 보관할\n공장의 이름을 입력해주세요.</string>
+    <string name="Factory_textView">공장 설립</string>
+    <string name="FactoryName_textView">공장 이름을 입력해주세요!</string>
+    <string name="FactorySubName_textView">당신의 소중한 아이디어를 기록하고 보관합니다.</string>
     <string name="FactoryName_editText">Ex) 아이디어 팩토리</string>
     <string name="Complete_button">완료</string>
-
 
 </resources>
