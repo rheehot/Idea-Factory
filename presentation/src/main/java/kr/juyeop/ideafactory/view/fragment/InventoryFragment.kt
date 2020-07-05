@@ -15,7 +15,7 @@ class InventoryFragment : BaseFragment<FragmentInventoryBinding, InventoryViewMo
     override val viewModel: InventoryViewModel
         get() = getViewModel(InventoryViewModel::class)
 
-    override fun init() {viewModel.getAll()}
+    override fun init() { viewModel.getAll() }
     override fun observerViewModel() {
         with(viewModel){
             addIdeaEvent.observe(this@InventoryFragment, Observer {

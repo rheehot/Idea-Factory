@@ -12,7 +12,7 @@ class SplashViewModel : BaseViewModel() {
     val onSuccessEvent = SingleLiveEvent<Unit>()
 
     fun checkData(context : Context){
-        if(SharedPreferencesManager.getFactoryName(context).isNullOrEmpty()) onFailEvent.call()
+        if(SharedPreferencesManager.getFactoryUser(context).isNullOrEmpty()) onFailEvent.call()
         else onSuccessEvent.call()
     }
 }

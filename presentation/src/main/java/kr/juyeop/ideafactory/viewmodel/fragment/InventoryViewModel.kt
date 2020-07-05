@@ -16,11 +16,7 @@ class InventoryViewModel(
     val ideaAdapter = IdeaAdapter()
     val addIdeaEvent = SingleLiveEvent<Unit>()
 
-    init{
-        val ideaModel = IdeaModel("이름", "배경", "제목", "내용", "기대효과", "2020-06-21")
-        ideaList.add(ideaModel)
-
-        ideaAdapter.setList(ideaList) }
+    init{ ideaAdapter.setList(ideaList) }
 
     fun getAll(){
         addDisposable(getAllUseCase.buildUseCaseObservable(), object : DisposableSingleObserver<List<IdeaModel>>(){

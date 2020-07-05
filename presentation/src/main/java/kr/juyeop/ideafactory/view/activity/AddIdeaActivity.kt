@@ -1,12 +1,28 @@
 package kr.juyeop.ideafactory.view.activity
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
+import androidx.lifecycle.Observer
 import kr.juyeop.ideafactory.R
+import kr.juyeop.ideafactory.base.BaseActivity
+import kr.juyeop.ideafactory.databinding.ActivityAddIdeaBinding
+import kr.juyeop.ideafactory.viewmodel.activity.AddIdeaViewModel
+import kr.juyeop.ideafactory.viewmodel.fragment.InventoryViewModel
+import kr.juyeop.ideafactory.widget.extension.toast
+import org.koin.androidx.viewmodel.ext.android.getViewModel
 
-class AddIdeaActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_add_idea)
+class AddIdeaActivity : BaseActivity<ActivityAddIdeaBinding, AddIdeaViewModel>() {
+
+    override val viewModel: AddIdeaViewModel
+        get() = getViewModel(AddIdeaViewModel::class)
+
+    override fun init() {}
+    override fun observerViewModel() {
+        with(viewModel){
+            onCompleteEvent.observe(this@AddIdeaActivity, Observer {
+                toast(R.string.onCompleteEvent)
+            })
+            onErrorEvent.observe(this@AddIdeaActivity, Observer {
+                toast(R.string.onErrorEvent)
+            })
+        }
     }
 }

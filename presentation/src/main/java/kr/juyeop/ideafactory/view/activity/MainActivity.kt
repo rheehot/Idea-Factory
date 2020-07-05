@@ -2,6 +2,7 @@ package kr.juyeop.ideafactory.view.activity
 
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_main.*
+import kr.juyeop.data.sharedpreferences.SharedPreferencesManager
 import kr.juyeop.ideafactory.R
 import kr.juyeop.ideafactory.base.BaseActivity
 import kr.juyeop.ideafactory.databinding.ActivityMainBinding
@@ -30,6 +31,11 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
         val fragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.frameLayout, inventoryFragment).commitAllowingStateLoss()
         selectedEvent()
+        setFactoryName()
+    }
+
+    fun setFactoryName(){
+        factoryName_textView.text = SharedPreferencesManager.getFactoryName(applicationContext)
     }
 
     fun selectedEvent(){

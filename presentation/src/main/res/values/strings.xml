@@ -4,8 +4,8 @@
     <string name="app_name">Idea Factory</string>
 
     <!--Toast-->
-    <string name="onFailEvent">입력한 내용을 다시 확인해주세요.</string>
-    <string name="onSuccessEvent">정상적으로 수행되었습니다.</string>
+    <string name="onErrorEvent">다시 한 번 확인 부탁드립니다.</string>
+    <string name="onCompleteEvent">정상적으로 수행되었습니다.</string>
 
     <!--NameActivity-->
     <string name="factory_textView">공장 설립</string>
@@ -14,5 +14,12 @@
     <string name="factoryUser_hint">공장 소유자의 이름을 입력해주세요.</string>
     <string name="factoryName_hint">공장의 이름을 입력해주세요.</string>
     <string name="submit_button">제출하기</string>
+
+    <!--MainActivity-->
+    <string name="factoryName_textView">Idea Factory</string>
+    <string name="tab1_tab">공장재고</string>
+    <string name="tab2_tab">제품검토</string>
+    <string name="tab3_tab">거래회사</string>
+    <string name="tab4_tab">미팅약속</string>
 
 </resources>
