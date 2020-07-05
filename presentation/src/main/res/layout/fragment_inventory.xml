@@ -25,16 +25,17 @@
                 android:orientation="vertical">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout1"
                     android:layout_width="match_parent"
                     android:layout_height="300dp">
 
                     <TextView
-                        android:id="@+id/textView"
+                        android:id="@+id/inventory_textView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="24dp"
                         android:layout_marginTop="24dp"
-                        android:text="재고현황"
+                        android:text="@string/inventory_textView"
                         android:textColor="#000000"
                         android:textSize="25sp"
                         android:textStyle="bold"
@@ -42,14 +43,14 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/textView2"
+                        android:id="@+id/showInventory_textView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="24dp"
                         android:layout_marginTop="5dp"
-                        android:text="다양한 아이디어들을 구경하세요!"
+                        android:text="@string/showInventory_textView"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView" />
+                        app:layout_constraintTop_toBottomOf="@+id/inventory_textView" />
 
                     <ImageView
                         android:id="@+id/imageView2"
@@ -57,10 +58,10 @@
                         android:layout_height="25dp"
                         android:layout_marginTop="28dp"
                         android:layout_marginEnd="24dp"
+                        android:onClick="@{() -> viewModel.addIdea()}"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/ic_baseline_note_add_24"
-                        android:onClick="@{() -> viewModel.addIdea()}"/>
+                        app:srcCompat="@drawable/ic_baseline_note_add_24" />
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recyclerView"
@@ -74,22 +75,23 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView2"
+                        app:layout_constraintTop_toBottomOf="@+id/showInventory_textView"
                         tools:listitem="@layout/item_idea" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp">
 
                     <TextView
-                        android:id="@+id/textView23"
+                        android:id="@+id/keyword_textView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="24dp"
-                        android:text="핫키워드"
+                        android:text="@string/keyword_textView"
                         android:textColor="#000000"
                         android:textSize="25sp"
                         android:textStyle="bold"
@@ -97,13 +99,13 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/textView22"
+                        android:id="@+id/showKeyword_textView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:text="최근 유행하는 키워드들을 확인하세요!"
-                        app:layout_constraintStart_toStartOf="@+id/textView23"
-                        app:layout_constraintTop_toBottomOf="@+id/textView23" />
+                        android:text="@string/showKeyword_textView"
+                        app:layout_constraintStart_toStartOf="@+id/keyword_textView"
+                        app:layout_constraintTop_toBottomOf="@+id/keyword_textView" />
 
                     <ImageView
                         android:id="@+id/imageView24"
@@ -117,6 +119,7 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout3"
                     android:layout_width="match_parent"
                     android:layout_height="340dp"
                     android:layout_marginTop="10dp">
@@ -141,7 +144,6 @@
                         android:layout_marginStart="24dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="24dp"
-                        app:striped="true"
                         app:bootstrapBrand="success"
                         app:bootstrapProgress="80"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -149,7 +151,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView3"
                         app:roundedCorners="true"
-                        />
+                        app:striped="true" />
 
                     <TextView
                         android:id="@+id/textView388"
@@ -171,7 +173,6 @@
                         android:layout_marginStart="24dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="24dp"
-                        app:striped="true"
                         app:bootstrapBrand="info"
                         app:bootstrapProgress="50"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -179,7 +180,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView388"
                         app:roundedCorners="true"
-                      />
+                        app:striped="true" />
 
                     <TextView
                         android:id="@+id/textView38"
@@ -201,7 +202,6 @@
                         android:layout_marginStart="24dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="24dp"
-                        app:striped="true"
                         app:bootstrapBrand="danger"
                         app:bootstrapProgress="70"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -209,8 +209,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView38"
                         app:roundedCorners="true"
-                        />
-
+                        app:striped="true" />
 
                     <TextView
                         android:id="@+id/textView387"
@@ -231,7 +230,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="24dp"
                         android:layout_marginTop="10dp"
-                        app:striped="true"
                         android:layout_marginEnd="24dp"
                         app:bootstrapBrand="warning"
                         app:bootstrapProgress="90"
@@ -239,8 +237,8 @@
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView387"
-                        app:roundedCorners="true" />
-
+                        app:roundedCorners="true"
+                        app:striped="true" />
 
                     <TextView
                         android:id="@+id/textView31"
