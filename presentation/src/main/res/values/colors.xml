@@ -8,6 +8,6 @@
 
     <!--App-->
     <color name="mainColor">#F9A01B</color>
-    <color name="subColor">#F4F2F2</color>
+    <color name="grayColor">#F4F2F2</color>
 
 </resources>
