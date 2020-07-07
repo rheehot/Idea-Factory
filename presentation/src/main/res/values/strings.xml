@@ -28,4 +28,23 @@
     <string name="keyword_textView">핫 키워드</string>
     <string name="showKeyword_textView">최근 유행하는 키워드들을 확인하세요!</string>
 
+    <!--AddIdeaActivity-->
+    <string name="addIdea_textView">아이디어 생산</string>
+    
+    <string name="title_textView">제목을 입력해주세요!</string>
+    <string name="titleSub_textView">생각하고 있는 아이디어의 제목을 알려주세요.</string>
+    <string name="title_hint">아이디어의 제목을 입력해주세요.</string>
+
+    <string name="background_textView">배경을 입력해주세요!</string>
+    <string name="backgroundSub_textView">아이디어를 떠오르게 된 계기를 알려주세요.</string>
+    <string name="background_hint">아이디어의 배경을 입력해주세요.</string>
+
+    <string name="content_textView">상세 내용을 입력해주세요!</string>
+    <string name="contentSub_textView">이제 아이디어를 구체적으로 설명해주세요.</string>
+    <string name="content_hint">아이디어의 구체적인 내용을 입력해주세요.</string>
+
+    <string name="expect_textView">기대 방향을 입력해주세요!</string>
+    <string name="expectSub_textView">앞으로의 아이디어에 대한 기대 방향을 알려주세요.</string>
+    <string name="expect_hint">아이디어의 기대 방향을 입력해주세요.</string>
+
 </resources>
