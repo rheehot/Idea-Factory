@@ -14,6 +14,7 @@ class InventoryViewModel(
 
     val ideaList = ArrayList<IdeaModel>()
     val ideaAdapter = IdeaAdapter()
+
     val addIdeaEvent = SingleLiveEvent<Unit>()
 
     init{ ideaAdapter.setList(ideaList) }

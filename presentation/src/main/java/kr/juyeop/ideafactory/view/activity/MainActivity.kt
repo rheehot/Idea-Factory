@@ -28,16 +28,9 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
     override fun init() {
         val fragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.frameLayout, inventoryFragment).commitAllowingStateLoss()
-        selectedEvent()
-        setFactoryName()
-    }
 
-    override fun onBackPressed() {
-        ActivityCompat.finishAffinity(this)
-    }
-
-    fun setFactoryName(){
         factoryName_textView.text = SharedPreferencesManager.getFactoryName(applicationContext)
+        selectedEvent()
     }
 
     fun selectedEvent(){
@@ -54,5 +47,9 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
             override fun onTabReselected(tab: TabLayout.Tab) {}
             override fun onTabUnselected(tab: TabLayout.Tab) {}
         })
+    }
+
+    override fun onBackPressed() {
+        ActivityCompat.finishAffinity(this)
     }
 }

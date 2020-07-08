@@ -1,19 +1,27 @@
 package kr.juyeop.ideafactory.viewmodel.activity
 
+import android.app.Application
 import androidx.lifecycle.MutableLiveData
+import kr.juyeop.data.sharedpreferences.SharedPreferencesManager
 import kr.juyeop.ideafactory.base.BaseViewModel
 import kr.juyeop.ideafactory.widget.SingleLiveEvent
 
-class NameViewModel : BaseViewModel() {
+class NameViewModel(
+    val application: Application
+): BaseViewModel() {
 
     val factoryUser = MutableLiveData<String>()
     val factoryName = MutableLiveData<String>()
+
     val onFailEvent = SingleLiveEvent<Unit>()
     val onSuccessEvent = SingleLiveEvent<Unit>()
 
     fun completeEvent(){
-        if(checkData()) onSuccessEvent.call()
-        else onFailEvent.call()
+        if(checkData()) {
+            SharedPreferencesManager.setFactoryUser(application, factoryUser.value.toString())
+            SharedPreferencesManager.setFactoryName(application, factoryName.value.toString())
+            onSuccessEvent.call()
+        } else onFailEvent.call()
     }
 
     fun checkData() : Boolean{

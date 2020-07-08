@@ -15,7 +15,7 @@ import org.koin.dsl.module
 
 val viewModelModule = module {
     viewModel { SplashViewModel() }
-    viewModel { NameViewModel() }
+    viewModel { NameViewModel(androidApplication()) }
     viewModel { MainViewModel() }
 
     viewModel { InventoryViewModel(get()) }

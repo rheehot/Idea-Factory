@@ -15,10 +15,7 @@ class NameActivity : BaseActivity<ActivityNameBinding, NameViewModel>() {
     override val viewModel: NameViewModel
         get() = getViewModel(NameViewModel::class)
 
-    @Override
     override fun init() {}
-
-    @Override
     override fun observerViewModel() {
         with(viewModel){
             onFailEvent.observe(this@NameActivity, Observer {
@@ -26,8 +23,6 @@ class NameActivity : BaseActivity<ActivityNameBinding, NameViewModel>() {
             })
             onSuccessEvent.observe(this@NameActivity, Observer {
                 toast(R.string.onSuccessEvent)
-                SharedPreferencesManager.setFactoryUser(this@NameActivity, viewModel.factoryUser.value.toString())
-                SharedPreferencesManager.setFactoryName(this@NameActivity, viewModel.factoryName.value.toString())
                 startActivityWithFinish(applicationContext, MainActivity::class.java)
             })
         }
