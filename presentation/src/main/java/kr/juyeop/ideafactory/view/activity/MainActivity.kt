@@ -1,5 +1,6 @@
 package kr.juyeop.ideafactory.view.activity
 
+import androidx.core.app.ActivityCompat
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_main.*
 import kr.juyeop.data.sharedpreferences.SharedPreferencesManager
@@ -23,15 +24,16 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
     val tradingFragment = TradingFragment()
     val meetingFragment = MeetingFragment()
 
-    @Override
     override fun observerViewModel() {}
-
-    @Override
     override fun init() {
         val fragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.frameLayout, inventoryFragment).commitAllowingStateLoss()
         selectedEvent()
         setFactoryName()
+    }
+
+    override fun onBackPressed() {
+        ActivityCompat.finishAffinity(this)
     }
 
     fun setFactoryName(){

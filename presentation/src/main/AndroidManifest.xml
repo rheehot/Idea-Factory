@@ -10,6 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".view.activity.MainActivity" />
+        <activity android:name=".view.activity.NameActivity" />
         <activity android:name=".view.activity.EditIdeaActivity" />
         <activity android:name=".view.activity.AddIdeaActivity" />
         <activity android:name=".view.activity.SplashActivity">
@@ -18,7 +20,5 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.activity.MainActivity" />
-        <activity android:name=".view.activity.NameActivity" />
     </application>
 </manifest>

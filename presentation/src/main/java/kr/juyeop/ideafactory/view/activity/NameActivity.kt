@@ -22,10 +22,10 @@ class NameActivity : BaseActivity<ActivityNameBinding, NameViewModel>() {
     override fun observerViewModel() {
         with(viewModel){
             onFailEvent.observe(this@NameActivity, Observer {
-                toast(R.string.onErrorEvent)
+                toast(R.string.onFailEvent)
             })
             onSuccessEvent.observe(this@NameActivity, Observer {
-                toast(R.string.onCompleteEvent)
+                toast(R.string.onSuccessEvent)
                 SharedPreferencesManager.setFactoryUser(this@NameActivity, viewModel.factoryUser.value.toString())
                 SharedPreferencesManager.setFactoryName(this@NameActivity, viewModel.factoryName.value.toString())
                 startActivityWithFinish(applicationContext, MainActivity::class.java)

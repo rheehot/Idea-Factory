@@ -4,8 +4,11 @@
     <string name="app_name">Idea Factory</string>
 
     <!--Toast-->
-    <string name="onErrorEvent">다시 한 번 확인 부탁드립니다.</string>
-    <string name="onCompleteEvent">정상적으로 수행되었습니다.</string>
+    <string name="onFailEvent">다시 한 번 확인 부탁드립니다.</string>
+    <string name="onSuccessEvent">정상적으로 수행되었습니다.</string>
+
+    <string name="onCompleteEvent">정상적으로 처리되었습니다.</string>
+    <string name="onErrorEvent">내부 처리 과정에서 오류가 발생했습니다.</string>
 
     <!--NameActivity-->
     <string name="factory_textView">공장 설립</string>

@@ -5,9 +5,8 @@ import kr.juyeop.ideafactory.base.BaseFragment
 import kr.juyeop.ideafactory.databinding.FragmentInventoryBinding
 import kr.juyeop.ideafactory.view.activity.AddIdeaActivity
 import kr.juyeop.ideafactory.view.activity.EditIdeaActivity
-import kr.juyeop.ideafactory.view.activity.NameActivity
 import kr.juyeop.ideafactory.viewmodel.fragment.InventoryViewModel
-import kr.juyeop.ideafactory.widget.extension.startActivity
+import kr.juyeop.ideafactory.widget.extension.startActivityWithFinish
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
 class InventoryFragment : BaseFragment<FragmentInventoryBinding, InventoryViewModel>() {
@@ -19,11 +18,11 @@ class InventoryFragment : BaseFragment<FragmentInventoryBinding, InventoryViewMo
     override fun observerViewModel() {
         with(viewModel){
             addIdeaEvent.observe(this@InventoryFragment, Observer {
-                startActivity(binding.root.context, AddIdeaActivity::class.java)
+                startActivityWithFinish(binding.root.context, AddIdeaActivity::class.java)
             })
             ideaAdapter.clickPosition.observe(this@InventoryFragment, Observer {
                 saveIdea()
-                startActivity(binding.root.context, EditIdeaActivity::class.java)
+                startActivityWithFinish(binding.root.context, EditIdeaActivity::class.java)
             })
         }
     }
