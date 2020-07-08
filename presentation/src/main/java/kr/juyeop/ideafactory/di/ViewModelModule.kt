@@ -8,6 +8,8 @@ import kr.juyeop.ideafactory.viewmodel.activity.SplashViewModel
 import kr.juyeop.ideafactory.viewmodel.fragment.MeetingViewModel
 import kr.juyeop.ideafactory.viewmodel.fragment.ProductViewModel
 import kr.juyeop.ideafactory.viewmodel.fragment.TradingViewModel
+import org.koin.android.ext.koin.androidApplication
+import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -17,7 +19,7 @@ val viewModelModule = module {
     viewModel { MainViewModel() }
 
     viewModel { InventoryViewModel(get()) }
-    viewModel { AddIdeaViewModel(get()) }
+    viewModel { AddIdeaViewModel(get(), androidApplication()) }
 
     viewModel { ProductViewModel() }
     viewModel { TradingViewModel() }
