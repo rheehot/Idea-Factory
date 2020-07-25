@@ -4,12 +4,10 @@ import android.app.Application
 import androidx.lifecycle.MutableLiveData
 import io.reactivex.observers.DisposableCompletableObserver
 import kr.juyeop.data.sharedpreferences.SharedPreferencesManager
-import kr.juyeop.domain.model.IdeaModel
+import kr.juyeop.domain.model.idea.IdeaModel
 import kr.juyeop.domain.usecase.InsertUseCase
 import kr.juyeop.ideafactory.base.BaseViewModel
 import kr.juyeop.ideafactory.widget.SingleLiveEvent
-import java.text.SimpleDateFormat
-import java.util.*
 
 class AddIdeaViewModel(
     private val insertUsecase: InsertUseCase,
@@ -30,7 +28,14 @@ class AddIdeaViewModel(
         if(checkData()){
             val user = SharedPreferencesManager.getFactoryUser(application)
             val date = System.currentTimeMillis()
-            val ideaModel = IdeaModel(user.toString(), ideaBackground.value.toString(), ideaTitle.value.toString(), ideaContent.value.toString(), ideaExpect.value.toString(), date.toString())
+            val ideaModel = IdeaModel(
+                user.toString(),
+                ideaBackground.value.toString(),
+                ideaTitle.value.toString(),
+                ideaContent.value.toString(),
+                ideaExpect.value.toString(),
+                date.toString()
+            )
 
             insertIdea(ideaModel)
         } else onFailEvent.call()

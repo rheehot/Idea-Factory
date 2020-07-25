@@ -1,6 +1,6 @@
 package kr.juyeop.data.util
 
-import kr.juyeop.domain.model.IdeaModel
+import kr.juyeop.domain.model.idea.IdeaModel
 
 object IdeaData {
 
@@ -10,7 +10,7 @@ object IdeaData {
         this.idea = model
     }
 
-    fun bringIdea() : IdeaModel{
+    fun bringIdea() : IdeaModel {
         return idea
     }
 }

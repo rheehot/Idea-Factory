@@ -1,4 +1,4 @@
-package kr.juyeop.domain.model
+package kr.juyeop.domain.model.idea
 
 data class IdeaModel(val name : String,
                      val background : String,

@@ -11,7 +11,8 @@ class Application : Application(){
         super.onCreate()
         startKoin {
             androidContext(this@Application)
-            val modules = listOf(viewModelModule, useCaseModule, repositoryImplModule, dataSourceModule, cacheModule)
+            val modules = listOf(viewModelModule, useCaseModule, repositoryImplModule,
+                                dataSourceModule, remoteModule, cacheModule, netWorkModule)
             modules(modules)
         }
     }

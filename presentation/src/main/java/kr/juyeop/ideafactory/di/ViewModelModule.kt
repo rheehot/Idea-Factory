@@ -18,7 +18,7 @@ val viewModelModule = module {
     viewModel { NameViewModel(androidApplication()) }
     viewModel { MainViewModel() }
 
-    viewModel { InventoryViewModel(get()) }
+    viewModel { InventoryViewModel(get(), get()) }
     viewModel { AddIdeaViewModel(get(), androidApplication()) }
 
     viewModel { ProductViewModel() }

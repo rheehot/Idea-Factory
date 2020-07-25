@@ -2,7 +2,7 @@ package kr.juyeop.domain.repository
 
 import io.reactivex.Completable
 import io.reactivex.Single
-import kr.juyeop.domain.model.IdeaModel
+import kr.juyeop.domain.model.idea.IdeaModel
 
 interface IdeaRepository{
 

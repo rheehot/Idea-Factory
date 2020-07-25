@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
-import kr.juyeop.domain.model.IdeaModel
+import kr.juyeop.domain.model.idea.IdeaModel
 import kr.juyeop.ideafactory.R
 import kr.juyeop.ideafactory.databinding.ItemIdeaBinding
 

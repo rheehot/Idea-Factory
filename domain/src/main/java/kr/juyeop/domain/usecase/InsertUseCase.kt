@@ -3,7 +3,7 @@ package kr.juyeop.domain.usecase
 import io.reactivex.Completable
 import io.reactivex.observers.DisposableCompletableObserver
 import kr.juyeop.domain.base.ParamsUseCase
-import kr.juyeop.domain.model.IdeaModel
+import kr.juyeop.domain.model.idea.IdeaModel
 import kr.juyeop.domain.repository.IdeaRepository
 
 class InsertUseCase(

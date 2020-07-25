@@ -2,7 +2,7 @@ package kr.juyeop.domain.usecase
 
 import io.reactivex.Single
 import kr.juyeop.domain.base.BaseUseCase
-import kr.juyeop.domain.model.IdeaModel
+import kr.juyeop.domain.model.idea.IdeaModel
 import kr.juyeop.domain.repository.IdeaRepository
 
 class GetAllUseCase(

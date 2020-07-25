@@ -1,9 +1,6 @@
 package kr.juyeop.ideafactory.di
 
-import kr.juyeop.domain.usecase.DeleteUseCase
-import kr.juyeop.domain.usecase.GetAllUseCase
-import kr.juyeop.domain.usecase.InsertUseCase
-import kr.juyeop.domain.usecase.UpdateUseCase
+import kr.juyeop.domain.usecase.*
 import org.koin.dsl.module
 
 val useCaseModule = module {
@@ -11,4 +8,5 @@ val useCaseModule = module {
     single { InsertUseCase(get()) }
     single { UpdateUseCase(get()) }
     single { DeleteUseCase(get()) }
+    single { DataLabUseCase(get()) }
 }

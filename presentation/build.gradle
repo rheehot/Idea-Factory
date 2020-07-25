@@ -63,4 +63,10 @@ dependencies {
 
     // BootStrap
     implementation "com.beardedhen:androidbootstrap:$rootProject.bootstrap_version"
+
+    // Retrofit
+    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.okhttp3_version"
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofit2_version"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.retrofit2_version"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$rootProject.retrofit2_version"
 }

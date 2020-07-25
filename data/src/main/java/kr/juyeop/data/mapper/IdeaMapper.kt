@@ -2,7 +2,7 @@ package kr.juyeop.data.mapper
 
 import kr.juyeop.data.base.BaseEntityMapper
 import kr.juyeop.data.database.entity.IdeaEntity
-import kr.juyeop.domain.model.IdeaModel
+import kr.juyeop.domain.model.idea.IdeaModel
 
 class IdeaMapper : BaseEntityMapper<IdeaModel, IdeaEntity>{
 

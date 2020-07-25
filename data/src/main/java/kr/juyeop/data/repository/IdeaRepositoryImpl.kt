@@ -4,7 +4,7 @@ import io.reactivex.Completable
 import io.reactivex.Single
 import kr.juyeop.data.datasource.IdeaDataSource
 import kr.juyeop.data.mapper.IdeaMapper
-import kr.juyeop.domain.model.IdeaModel
+import kr.juyeop.domain.model.idea.IdeaModel
 import kr.juyeop.domain.repository.IdeaRepository
 
 class IdeaRepositoryImpl (
