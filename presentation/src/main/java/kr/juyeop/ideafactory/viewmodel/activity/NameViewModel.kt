@@ -16,7 +16,7 @@ class NameViewModel(
     val onFailEvent = SingleLiveEvent<Unit>()
     val onSuccessEvent = SingleLiveEvent<Unit>()
 
-    fun completeEvent(){
+    fun completeEvent() {
         if(checkData()) {
             SharedPreferencesManager.setFactoryUser(application, factoryUser.value.toString())
             SharedPreferencesManager.setFactoryName(application, factoryName.value.toString())

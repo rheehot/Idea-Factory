@@ -28,10 +28,8 @@ class AddIdeaViewModel(
 
     fun submit(){
         if(checkData()){
-            val simpleDateFormat = SimpleDateFormat("yyyy년 MM월 dd일 hh시 mm분 ss초")
-
             val user = SharedPreferencesManager.getFactoryUser(application)
-            val date = simpleDateFormat.format(Date())
+            val date = System.currentTimeMillis()
             val ideaModel = IdeaModel(user.toString(), ideaBackground.value.toString(), ideaTitle.value.toString(), ideaContent.value.toString(), ideaExpect.value.toString(), date.toString())
 
             insertIdea(ideaModel)

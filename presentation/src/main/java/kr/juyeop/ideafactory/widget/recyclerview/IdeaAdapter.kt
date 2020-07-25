@@ -24,6 +24,7 @@ class IdeaAdapter : RecyclerView.Adapter<IdeaAdapter.ViewHolder>(){
         fun bind(model: IdeaModel) {
             viewModel.bind(model)
             binding.viewModel = viewModel
+            binding.title.isSelected = true
         }
     }
 
