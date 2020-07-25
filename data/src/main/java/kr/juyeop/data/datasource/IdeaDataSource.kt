@@ -5,10 +5,12 @@ import io.reactivex.Single
 import kr.juyeop.data.base.BaseDataSource
 import kr.juyeop.data.database.cache.IdeaCache
 import kr.juyeop.data.database.entity.IdeaEntity
+import java.util.*
 
 class IdeaDataSource (
+    override val remote : Any,
     override val cache: IdeaCache
-) : BaseDataSource<IdeaCache>(){
+) : BaseDataSource<Any, IdeaCache>(){
 
     fun getAll() : Single<List<IdeaEntity>> = cache.getAll()
 
