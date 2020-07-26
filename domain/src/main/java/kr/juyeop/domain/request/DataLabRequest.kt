@@ -1,11 +1,10 @@
 package kr.juyeop.domain.request
 
-import kr.juyeop.domain.model.datalab.request.KeyGroupsModel
+import kr.juyeop.domain.model.datalab.request.KeywordGroupsModel
 
 class DataLabRequest (
-    startDate : String,
-    endDate : String,
-    timeUnit : String,
-    keyGroupsModel : List<KeyGroupsModel>,
-    device : String
+    val startDate : String,
+    val endDate : String,
+    val timeUnit : String,
+    val keywordGroups : List<KeywordGroupsModel>
 )

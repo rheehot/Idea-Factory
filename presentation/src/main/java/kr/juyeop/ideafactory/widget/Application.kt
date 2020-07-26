@@ -12,7 +12,7 @@ class Application : Application(){
         startKoin {
             androidContext(this@Application)
             val modules = listOf(viewModelModule, useCaseModule, repositoryImplModule,
-                                dataSourceModule, remoteModule, cacheModule, netWorkModule)
+                                dataSourceModule, remoteModule, cacheModule, serviceModule, netWorkModule)
             modules(modules)
         }
     }

@@ -107,15 +107,6 @@
                         app:layout_constraintStart_toStartOf="@+id/keyword_textView"
                         app:layout_constraintTop_toBottomOf="@+id/keyword_textView" />
 
-                    <ImageView
-                        android:id="@+id/imageView24"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_marginEnd="24dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/ic_baseline_arrow_forward_24" />
-
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -130,7 +121,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="24dp"
                         android:layout_marginTop="16dp"
-                        android:text="한글날 80%"
+                        android:text="@{viewModel.firstGroup}"
                         android:textSize="14sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
@@ -146,6 +137,7 @@
                         android:layout_marginEnd="24dp"
                         app:bootstrapBrand="success"
                         app:bootstrapProgress="80"
+                        app:bootstrapshowPercentage="true"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
@@ -159,7 +151,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="24dp"
                         android:layout_marginTop="16dp"
-                        android:text="기생충 50%"
+                        android:text="@{viewModel.secondGroup}"
                         android:textSize="14sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
@@ -175,6 +167,7 @@
                         android:layout_marginEnd="24dp"
                         app:bootstrapBrand="info"
                         app:bootstrapProgress="50"
+                        app:bootstrapshowPercentage="true"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
@@ -188,7 +181,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="24dp"
                         android:layout_marginTop="16dp"
-                        android:text="SKY 캐슬 70%"
+                        android:text="@{viewModel.thirdGroup}"
                         android:textSize="14sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
@@ -204,6 +197,7 @@
                         android:layout_marginEnd="24dp"
                         app:bootstrapBrand="danger"
                         app:bootstrapProgress="70"
+                        app:bootstrapshowPercentage="true"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
@@ -217,7 +211,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="24dp"
                         android:layout_marginTop="16dp"
-                        android:text="AFC 아시안컵 90%"
+                        android:text="@{viewModel.fourthGroup}"
                         android:textSize="14sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
@@ -233,6 +227,7 @@
                         android:layout_marginEnd="24dp"
                         app:bootstrapBrand="warning"
                         app:bootstrapProgress="90"
+                        app:bootstrapshowPercentage="true"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
@@ -246,7 +241,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="24dp"
-                        android:text="2020-06-20 동기화"
+                        android:text="@{viewModel.lastUpdate}"
                         android:textSize="12sp"
                         android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"

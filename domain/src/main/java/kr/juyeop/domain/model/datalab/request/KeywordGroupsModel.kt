@@ -1,6 +1,6 @@
 package kr.juyeop.domain.model.datalab.request
 
-data class KeyGroupsModel (
+data class KeywordGroupsModel (
     val groupName : String,
     val keywords : List<String>
 )

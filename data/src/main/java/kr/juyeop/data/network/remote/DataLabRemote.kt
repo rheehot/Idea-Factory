@@ -10,6 +10,7 @@ class DataLabRemote (
     override val service: DataLabService
 ) : BaseRemote<DataLabService>() {
 
-    fun getDataLab(dataLabRequest: DataLabRequest) : Single<DataLabModel> =
-        service.getDataLab(dataLabRequest).map(getResponseData())
+    fun getDataLab(dataLabRequest: DataLabRequest) : Single<DataLabModel> {
+        return service.getDataLab("ltzeX1sKQCW5G9QshS0G", "1bWYZENwlx", "application/json", dataLabRequest).map(getResponseData())
+    }
 }
