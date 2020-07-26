@@ -4,7 +4,7 @@ import io.reactivex.Single
 import kr.juyeop.domain.base.ParamsUseCase
 import kr.juyeop.domain.model.datalab.response.DataLabModel
 import kr.juyeop.domain.repository.DataLabRepository
-import kr.juyeop.domain.request.DataLabRequest
+import kr.juyeop.domain.model.datalab.request.DataLabRequest
 
 class DataLabUseCase (
     private val dataLabRepository: DataLabRepository

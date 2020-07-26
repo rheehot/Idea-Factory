@@ -1,4 +1,4 @@
-package kr.juyeop.domain.request
+package kr.juyeop.domain.model.datalab.request
 
 import kr.juyeop.domain.model.datalab.request.KeywordGroupsModel
 

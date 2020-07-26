@@ -6,7 +6,7 @@ import kr.juyeop.data.util.IdeaData
 import kr.juyeop.domain.model.datalab.request.KeywordGroupsModel
 import kr.juyeop.domain.model.datalab.response.DataLabModel
 import kr.juyeop.domain.model.idea.IdeaModel
-import kr.juyeop.domain.request.DataLabRequest
+import kr.juyeop.domain.model.datalab.request.DataLabRequest
 import kr.juyeop.domain.usecase.DataLabUseCase
 import kr.juyeop.domain.usecase.GetAllUseCase
 import kr.juyeop.ideafactory.base.BaseViewModel
@@ -60,7 +60,13 @@ class InventoryViewModel(
 
     fun getDataLab() {
         val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd")
-        val dataLabRequest = DataLabRequest("2020-07-01", simpleDateFormat.format(Date()), "month", prepareData())
+        val dataLabRequest =
+            DataLabRequest(
+                "2020-07-01",
+                simpleDateFormat.format(Date()),
+                "month",
+                prepareData()
+            )
 
         addDisposable(dataLabUseCase.buildUseCaseObservable(DataLabUseCase.Params(dataLabRequest)),
             object : DisposableSingleObserver<DataLabModel>() {

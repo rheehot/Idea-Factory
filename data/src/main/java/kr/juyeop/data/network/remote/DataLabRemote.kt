@@ -4,7 +4,7 @@ import io.reactivex.Single
 import kr.juyeop.data.base.remote.BaseRemote
 import kr.juyeop.data.network.service.DataLabService
 import kr.juyeop.domain.model.datalab.response.DataLabModel
-import kr.juyeop.domain.request.DataLabRequest
+import kr.juyeop.domain.model.datalab.request.DataLabRequest
 
 class DataLabRemote (
     override val service: DataLabService
