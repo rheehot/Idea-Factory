@@ -24,7 +24,7 @@ class IdeaMapper : BaseEntityMapper<IdeaModel, IdeaEntity>{
             model.title,
             model.content,
             model.effect,
-            model.date
+            model.date!!
         )
     }
 }

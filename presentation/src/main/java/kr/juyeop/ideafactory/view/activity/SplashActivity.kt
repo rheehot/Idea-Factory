@@ -13,7 +13,7 @@ class SplashActivity : BaseActivity<ActivitySplashBinding, SplashViewModel>() {
     override val viewModel: SplashViewModel
         get() = getViewModel(SplashViewModel::class)
 
-    override fun init(){ viewModel.checkData(applicationContext) }
+    override fun init(){ viewModel.checkData() }
     override fun observerViewModel() {
         val handler = Handler()
         var runnable : Runnable

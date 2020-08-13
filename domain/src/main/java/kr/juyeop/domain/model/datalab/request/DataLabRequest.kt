@@ -1,7 +1,5 @@
 package kr.juyeop.domain.model.datalab.request
 
-import kr.juyeop.domain.model.datalab.request.KeywordGroupsModel
-
 class DataLabRequest (
     val startDate : String,
     val endDate : String,

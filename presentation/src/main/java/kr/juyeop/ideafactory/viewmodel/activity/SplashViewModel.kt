@@ -6,12 +6,14 @@ import kr.juyeop.data.sharedpreferences.SharedPreferencesManager
 import kr.juyeop.ideafactory.base.BaseViewModel
 import kr.juyeop.ideafactory.widget.SingleLiveEvent
 
-class SplashViewModel : BaseViewModel() {
+class SplashViewModel(
+    val context: Context
+) : BaseViewModel() {
 
     val onFailEvent = SingleLiveEvent<Unit>()
     val onSuccessEvent = SingleLiveEvent<Unit>()
 
-    fun checkData(context : Context){
+    fun checkData(){
         if(SharedPreferencesManager.getFactoryUser(context).isNullOrEmpty()) onFailEvent.call()
         else onSuccessEvent.call()
     }

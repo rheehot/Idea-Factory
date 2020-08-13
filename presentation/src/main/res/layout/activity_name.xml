@@ -104,7 +104,7 @@
                 android:layout_marginTop="30dp"
                 android:hint="@string/factoryName_hint"
                 app:counterEnabled="true"
-                app:counterMaxLength="10"
+                app:counterMaxLength="15"
                 app:errorEnabled="true"
                 app:boxBackgroundColor="@color/grayColor"
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"

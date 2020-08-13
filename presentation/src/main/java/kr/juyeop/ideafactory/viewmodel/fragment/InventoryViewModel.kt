@@ -11,8 +11,8 @@ import kr.juyeop.domain.usecase.DataLabUseCase
 import kr.juyeop.domain.usecase.GetAllUseCase
 import kr.juyeop.ideafactory.base.BaseViewModel
 import kr.juyeop.ideafactory.widget.SingleLiveEvent
+import kr.juyeop.ideafactory.widget.extension.dateFormat
 import kr.juyeop.ideafactory.widget.recyclerview.IdeaAdapter
-import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -43,7 +43,9 @@ class InventoryViewModel(
     fun getAll() {
         addDisposable(getAllUseCase.buildUseCaseObservable(), object : DisposableSingleObserver<List<IdeaModel>>(){
             override fun onSuccess(t: List<IdeaModel>) {
-                ideaList.addAll(t)
+                if (t.isEmpty()) ideaList.addAll(listOf(IdeaModel(null, null, null, null, null, System.currentTimeMillis().toString())))
+                else ideaList.addAll(t)
+
                 ideaAdapter.notifyDataSetChanged()
             }
             override fun onError(e: Throwable) {
@@ -59,15 +61,7 @@ class InventoryViewModel(
     }
 
     fun getDataLab() {
-        val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd")
-        val dataLabRequest =
-            DataLabRequest(
-                "2020-07-01",
-                simpleDateFormat.format(Date()),
-                "month",
-                prepareData()
-            )
-
+        val dataLabRequest = DataLabRequest(Date().dateFormat(), Date().dateFormat(), "month", prepareData())
         addDisposable(dataLabUseCase.buildUseCaseObservable(DataLabUseCase.Params(dataLabRequest)),
             object : DisposableSingleObserver<DataLabModel>() {
                 override fun onSuccess(t: DataLabModel) {
