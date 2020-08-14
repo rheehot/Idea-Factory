@@ -21,20 +21,21 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/constraintLayout1"
                     android:layout_width="match_parent"
-                    android:layout_height="300dp">
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginEnd="24dp">
 
                     <TextView
                         android:id="@+id/inventory_textView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="24dp"
-                        android:layout_marginTop="24dp"
                         android:text="@string/inventory_textView"
                         android:textColor="#000000"
                         android:textSize="25sp"
@@ -46,7 +47,6 @@
                         android:id="@+id/showInventory_textView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="24dp"
                         android:layout_marginTop="5dp"
                         android:text="@string/showInventory_textView"
                         app:layout_constraintStart_toStartOf="parent"
@@ -57,7 +57,6 @@
                         android:layout_width="25dp"
                         android:layout_height="25dp"
                         android:layout_marginTop="28dp"
-                        android:layout_marginEnd="24dp"
                         android:onClick="@{() -> viewModel.addIdea()}"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
@@ -65,33 +64,30 @@
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recyclerView"
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="200dp"
-                        android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
-                        android:layout_marginEnd="16dp"
                         android:orientation="horizontal"
                         app:adapter="@{viewModel.ideaAdapter}"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/showInventory_textView"
                         tools:listitem="@layout/item_idea" />
-
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/constraintLayout2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp">
+                    android:layout_marginStart="24dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginTop="10dp">
 
                     <TextView
                         android:id="@+id/keyword_textView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="24dp"
                         android:text="@string/keyword_textView"
                         android:textColor="#000000"
                         android:textSize="25sp"
@@ -107,35 +103,34 @@
                         android:text="@string/showKeyword_textView"
                         app:layout_constraintStart_toStartOf="@+id/keyword_textView"
                         app:layout_constraintTop_toBottomOf="@+id/keyword_textView" />
-
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/constraintLayout3"
                     android:layout_width="match_parent"
-                    android:layout_height="340dp"
-                    android:layout_marginTop="10dp">
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="24dp"
+                    android:layout_marginEnd="24dp">
 
                     <TextView
                         android:id="@+id/textView3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="24dp"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginTop="15dp"
                         android:text="@{viewModel.firstGroup}"
                         android:textSize="14sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        tools:ignore="MissingConstraints" />
+                        tools:text="@string/bootstrapProgressBar_textView"/>
 
                     <com.beardedhen.androidbootstrap.BootstrapProgressBar
                         android:id="@+id/bootstrapProgressBar"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="24dp"
                         android:layout_marginTop="10dp"
-                        android:layout_marginEnd="24dp"
                         app:bootstrapBrand="success"
                         app:bootstrapProgress="80"
                         app:bootstrapshowPercentage="true"
@@ -150,22 +145,19 @@
                         android:id="@+id/textView388"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="24dp"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginTop="15dp"
                         android:text="@{viewModel.secondGroup}"
                         android:textSize="14sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/bootstrapProgressBar"
-                        tools:ignore="MissingConstraints" />
+                        tools:text="@string/bootstrapProgressBar2_textView" />
 
                     <com.beardedhen.androidbootstrap.BootstrapProgressBar
                         android:id="@+id/bootstrapProgressBar2"
                         android:layout_width="match_parent"
                         android:layout_height="20dp"
-                        android:layout_marginStart="24dp"
                         android:layout_marginTop="10dp"
-                        android:layout_marginEnd="24dp"
                         app:bootstrapBrand="info"
                         app:bootstrapProgress="50"
                         app:bootstrapshowPercentage="true"
@@ -180,22 +172,19 @@
                         android:id="@+id/textView38"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="24dp"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginTop="15dp"
                         android:text="@{viewModel.thirdGroup}"
                         android:textSize="14sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/bootstrapProgressBar2"
-                        tools:ignore="MissingConstraints" />
+                        tools:text="@string/bootstrapProgressBar3_textView" />
 
                     <com.beardedhen.androidbootstrap.BootstrapProgressBar
                         android:id="@+id/bootstrapProgressBar3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="24dp"
                         android:layout_marginTop="10dp"
-                        android:layout_marginEnd="24dp"
                         app:bootstrapBrand="danger"
                         app:bootstrapProgress="70"
                         app:bootstrapshowPercentage="true"
@@ -210,22 +199,19 @@
                         android:id="@+id/textView387"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="24dp"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginTop="15dp"
                         android:text="@{viewModel.fourthGroup}"
                         android:textSize="14sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/bootstrapProgressBar3"
-                        tools:ignore="MissingConstraints" />
+                        tools:text="@string/bootstrapProgressBar4_textView" />
 
                     <com.beardedhen.androidbootstrap.BootstrapProgressBar
                         android:id="@+id/bootstrapProgressBar4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="24dp"
                         android:layout_marginTop="10dp"
-                        android:layout_marginEnd="24dp"
                         app:bootstrapBrand="warning"
                         app:bootstrapProgress="90"
                         app:bootstrapshowPercentage="true"
@@ -241,13 +227,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:layout_marginEnd="24dp"
                         android:text="@{viewModel.lastUpdate}"
                         android:textSize="12sp"
                         android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/bootstrapProgressBar4" />
-
+                        app:layout_constraintTop_toBottomOf="@+id/bootstrapProgressBar4"
+                        tools:text="@string/refresh_textView" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </LinearLayout>

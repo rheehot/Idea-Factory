@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/editIdea"
+        android:title="아이디어 수정"
+        android:icon="@drawable/ic_baseline_edit_24"/>
+
+    <item
+        android:id="@+id/deleteIdea"
+        android:title="아이디어 삭제"
+        android:icon="@drawable/ic_baseline_delete_24"/>
+
+</menu>

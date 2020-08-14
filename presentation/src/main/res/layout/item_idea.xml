@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
         <variable
@@ -49,16 +49,18 @@
                         android:layout_height="wrap_content"
                         android:text="@={viewModel.title}"
                         android:textSize="12sp"
-                        android:layout_gravity="left"
+                        android:layout_gravity="start"
                         android:ellipsize="end"
-                        android:singleLine="true" />
+                        android:singleLine="true"
+                        tools:text="title"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="left"
+                        android:layout_gravity="start"
                         android:textSize="10sp"
-                        android:text="@={viewModel.date}" />
+                        android:text="@={viewModel.date}"
+                        tools:text="yyyy-MM-dd"/>
                 </LinearLayout>
 
             </LinearLayout>

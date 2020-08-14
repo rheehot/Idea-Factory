@@ -26,8 +26,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal|center_vertical"
-                android:text="공장의 아이디어 재고가 존재하지 않습니다."
-                android:textSize="18sp"
+                android:text="@string/noIdea_textView"
+                android:textSize="14sp"
                 android:textStyle="bold" />
         </androidx.cardview.widget.CardView>
     </LinearLayout>

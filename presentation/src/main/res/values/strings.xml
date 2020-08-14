@@ -4,19 +4,35 @@
     <string name="app_name">Idea Factory</string>
 
     <!--Toast-->
-    <string name="onFailEvent">다시 한 번 확인 부탁드립니다.</string>
     <string name="onSuccessEvent">정상적으로 수행되었습니다.</string>
+    <string name="onFailEvent">다시 한 번 확인 부탁드립니다.</string>
 
     <string name="onCompleteEvent">정상적으로 처리되었습니다.</string>
     <string name="onErrorEvent">내부 처리 과정에서 오류가 발생했습니다.</string>
 
-    <!--NameActivity-->
-    <string name="factory_textView">공장 설립</string>
-    <string name="factory_textView2">여러분의 공장을 설계하세요!</string>
-    <string name="factorySub_textView">당신의 소중한 아이디어를 기록하고 보관합니다.</string>
-    <string name="factoryUser_hint">공장 소유자의 이름을 입력해주세요.</string>
-    <string name="factoryName_hint">공장의 이름을 입력해주세요.</string>
-    <string name="submit_button">제출하기</string>
+
+
+
+
+    
+    <!--Title-->   
+    <string name="title_product">공장 설립</string>
+    
+    <!--Text-->
+    <string name="text_product_factory">여러분의 공장을 설계하세요!</string>
+    <string name="text_product_factory_sub">당신의 소중한 아이디어를 기록하고 보관합니다.</string>
+    <string name="text_input_user_name">공장 소유자의 이름을 입력해주세요.</string>
+    <string name="text_input_factory_name">공장의 이름을 입력해주세요.</string>
+
+    <!--Button-->
+    <string name="button_submit">제출하기</string>
+
+
+
+
+
+
+
 
     <!--MainActivity-->
     <string name="factoryName_textView">Idea Factory</string>
@@ -24,16 +40,28 @@
     <string name="tab2_tab">제품검토</string>
     <string name="tab3_tab">거래회사</string>
     <string name="tab4_tab">미팅약속</string>
-    
+
     <!--InventoryFragment-->
     <string name="inventory_textView">재고현황</string>
     <string name="showInventory_textView">다양한 아이디어들을 구경하세요!</string>
     <string name="keyword_textView">핫 키워드</string>
     <string name="showKeyword_textView">최근 유행하는 키워드들을 확인하세요!</string>
+    <string name="bootstrapProgressBar_textView">엔터테인먼트·예술</string>
+    <string name="bootstrapProgressBar2_textView">생활·노하우·쇼핑</string>
+    <string name="bootstrapProgressBar3_textView">취미·여가·여행</string>
+    <string name="bootstrapProgressBar4_textView">지식·동향</string>
+    <string name="refresh_textView">yyyy-MM-dd 동기화</string>
+
+    <!--item_idaa.xml-->
+    <string name="ideaTitle_textView">title</string>
+    <string name="ideaDate_textView">yyyy-MM-dd</string>
+
+    <!--item_no_idea.xml-->
+    <string name="noIdea_textView">공장의 아이디어 재고가 존재하지 않습니다.</string>
 
     <!--AddIdeaActivity-->
     <string name="addIdea_textView">아이디어 생산</string>
-    
+
     <string name="title_textView">제목을 입력해주세요!</string>
     <string name="titleSub_textView">생각하고 있는 아이디어의 제목을 알려주세요.</string>
     <string name="title_hint">아이디어의 제목을 입력해주세요.</string>
@@ -42,12 +70,19 @@
     <string name="backgroundSub_textView">아이디어를 떠오르게 된 계기를 알려주세요.</string>
     <string name="background_hint">아이디어의 배경을 입력해주세요.</string>
 
-    <string name="content_textView">상세 내용을 입력해주세요!</string>
-    <string name="contentSub_textView">이제 아이디어를 구체적으로 설명해주세요.</string>
+    <string name="content_textView">상세내용을 입력해주세요!</string>
+    <string name="contentSub_textView">아이디어를 구체적으로 표현하여 알려주세요.</string>
     <string name="content_hint">아이디어의 구체적인 내용을 입력해주세요.</string>
 
-    <string name="expect_textView">기대 방향을 입력해주세요!</string>
-    <string name="expectSub_textView">앞으로의 아이디어에 대한 기대 방향을 알려주세요.</string>
-    <string name="expect_hint">아이디어의 기대 방향을 입력해주세요.</string>
+    <string name="expect_textView">기대효과를 입력해주세요!</string>
+    <string name="expectSub_textView">앞으로의 아이디어에 대한 기대효과를 알려주세요.</string>
+    <string name="expect_hint">아이디어의 기대효과를 입력해주세요.</string>
+
+    <!--DetailIdeaActivity-->
+    <string name="deatailIdea_textView">아이디어 상세</string>
+    <string name="deatailIdeaTitle_textView">제목</string>
+    <string name="detailIdeaWriterAndDate_textView">작성자 | yyyy.MM.dd. HH:ss</string>
+    <string name="detailIdea_textView">작성자 | yyyy.MM.dd. HH:ss</string>
+
 
 </resources>

@@ -5,11 +5,10 @@ import kotlinx.android.synthetic.main.fragment_inventory.*
 import kr.juyeop.ideafactory.base.BaseFragment
 import kr.juyeop.ideafactory.databinding.FragmentInventoryBinding
 import kr.juyeop.ideafactory.view.activity.AddIdeaActivity
-import kr.juyeop.ideafactory.view.activity.EditIdeaActivity
+import kr.juyeop.ideafactory.view.activity.DetailIdeaActivity
 import kr.juyeop.ideafactory.viewmodel.fragment.InventoryViewModel
 import kr.juyeop.ideafactory.widget.extension.startActivityWithFinish
 import org.koin.androidx.viewmodel.ext.android.getViewModel
-import kotlin.math.roundToInt
 
 class InventoryFragment : BaseFragment<FragmentInventoryBinding, InventoryViewModel>() {
 
@@ -24,7 +23,7 @@ class InventoryFragment : BaseFragment<FragmentInventoryBinding, InventoryViewMo
             })
             ideaAdapter.clickPosition.observe(this@InventoryFragment, Observer {
                 saveIdea()
-                startActivityWithFinish(binding.root.context, EditIdeaActivity::class.java)
+                startActivityWithFinish(binding.root.context, DetailIdeaActivity::class.java)
             })
             dataLabEvent.observe(this@InventoryFragment, Observer {
                 bootstrapProgressBar.progress = dataLabModel.results.get(0).data.get(0).ratio.toDouble().toInt()
