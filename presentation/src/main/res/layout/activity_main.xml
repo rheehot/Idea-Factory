@@ -45,9 +45,9 @@
                     android:layout_marginStart="10dp"
                     android:ellipsize="marquee"
                     android:singleLine="true"
-                    android:text="@string/factoryName_textView"
                     android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    tools:text="Idea Factory"/>
 
                 <View
                     android:layout_width="0dp"
@@ -75,25 +75,25 @@
                 android:id="@+id/tab1_tab"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/tab1_tab" />
+                android:text="@string/text_factory_inventory" />
 
             <com.google.android.material.tabs.TabItem
                 android:id="@+id/tab2_tab"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/tab2_tab" />
+                android:text="@string/text_product_check" />
 
             <com.google.android.material.tabs.TabItem
                 android:id="@+id/tab3_tab"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/tab3_tab" />
+                android:text="@string/text_deal_company" />
 
             <com.google.android.material.tabs.TabItem
                 android:id="@+id/tab4_tab"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/tab4_tab" />
+                android:text="@string/text_promise_meeting" />
 
         </com.google.android.material.tabs.TabLayout>
 

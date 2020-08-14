@@ -1,7 +1,6 @@
 package kr.juyeop.ideafactory.view.activity
 
 import androidx.lifecycle.Observer
-import kr.juyeop.data.sharedpreferences.SharedPreferencesManager
 import kr.juyeop.ideafactory.R
 import kr.juyeop.ideafactory.base.BaseActivity
 import kr.juyeop.ideafactory.databinding.ActivityNameBinding
@@ -19,10 +18,10 @@ class NameActivity : BaseActivity<ActivityNameBinding, NameViewModel>() {
     override fun observerViewModel() {
         with(viewModel){
             onFailEvent.observe(this@NameActivity, Observer {
-                toast(R.string.onFailEvent)
+                toast(R.string.toast_fail)
             })
             onSuccessEvent.observe(this@NameActivity, Observer {
-                toast(R.string.onSuccessEvent)
+                toast(R.string.toast_success)
                 startActivityWithFinish(applicationContext, MainActivity::class.java)
             })
         }

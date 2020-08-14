@@ -26,7 +26,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal|center_vertical"
-                android:text="@string/noIdea_textView"
+                android:text="@string/text_no_item"
                 android:textSize="14sp"
                 android:textStyle="bold" />
         </androidx.cardview.widget.CardView>

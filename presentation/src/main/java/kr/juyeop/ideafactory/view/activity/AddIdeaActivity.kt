@@ -18,14 +18,14 @@ class AddIdeaActivity : BaseActivity<ActivityAddIdeaBinding, AddIdeaViewModel>()
     override fun observerViewModel() {
         with(viewModel){
             onFailEvent.observe(this@AddIdeaActivity, Observer {
-                toast(R.string.onFailEvent)
+                toast(R.string.toast_fail)
             })
             onCompleteEvent.observe(this@AddIdeaActivity, Observer {
-                toast(R.string.onCompleteEvent)
+                toast(R.string.toast_complete)
                 startActivityWithFinish(applicationContext, MainActivity::class.java)
             })
             onErrorEvent.observe(this@AddIdeaActivity, Observer {
-                toast(R.string.onErrorEvent)
+                toast(R.string.toast_error)
             })
             onBackEvent.observe(this@AddIdeaActivity, Observer {
                 onBackPressed()
