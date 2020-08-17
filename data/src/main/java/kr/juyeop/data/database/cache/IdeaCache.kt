@@ -11,6 +11,8 @@ class IdeaCache(application : Application) : BaseCache(application){
 
     private val ideaDao : IdeaDao = database!!.ideaDao()
 
+    fun get(date: String) : Single<IdeaEntity> = ideaDao.get(date)
+
     fun getAll() : Single<List<IdeaEntity>> = ideaDao.getAll()
 
     fun insert(ideaEntitiy: IdeaEntity) : Completable = ideaDao.insert(ideaEntitiy)

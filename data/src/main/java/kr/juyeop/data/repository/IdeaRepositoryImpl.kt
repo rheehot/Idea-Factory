@@ -2,6 +2,7 @@ package kr.juyeop.data.repository
 
 import io.reactivex.Completable
 import io.reactivex.Single
+import kr.juyeop.data.database.entity.IdeaEntity
 import kr.juyeop.data.datasource.IdeaDataSource
 import kr.juyeop.data.mapper.IdeaMapper
 import kr.juyeop.domain.model.idea.IdeaModel
@@ -12,6 +13,10 @@ class IdeaRepositoryImpl (
 ) : IdeaRepository{
 
     private val ideaMapper = IdeaMapper()
+
+    override fun get(date: String): Single<IdeaModel> = ideaDataSource.get(date).map {
+        ideaMapper.mapToModel(it)
+    }
 
     override fun getAll(): Single<List<IdeaModel>> = ideaDataSource.getAll().map {
         it.map { ideaEntity ->  ideaMapper.mapToModel(ideaEntity)}

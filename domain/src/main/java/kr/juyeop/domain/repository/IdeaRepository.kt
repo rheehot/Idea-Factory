@@ -6,6 +6,8 @@ import kr.juyeop.domain.model.idea.IdeaModel
 
 interface IdeaRepository{
 
+    fun get(date: String) : Single<IdeaModel>
+
     fun getAll() : Single<List<IdeaModel>>
 
     fun insert(ideaModel: IdeaModel) : Completable

@@ -1,5 +1,6 @@
 package kr.juyeop.ideafactory.di
 
+import kr.juyeop.ideafactory.view.activity.DetailIdeaActivity
 import kr.juyeop.ideafactory.viewmodel.activity.*
 import kr.juyeop.ideafactory.viewmodel.fragment.InventoryViewModel
 import kr.juyeop.ideafactory.viewmodel.fragment.MeetingViewModel
@@ -15,7 +16,7 @@ val viewModelModule = module {
     viewModel { MainViewModel() }
 
     viewModel { InventoryViewModel(get(), get()) }
-    viewModel { DetailIdeaViewModel(get()) }
+    viewModel { DetailIdeaViewModel(get(), get()) }
     viewModel { AddIdeaViewModel(get(), androidApplication()) }
 
     viewModel { ProductViewModel() }

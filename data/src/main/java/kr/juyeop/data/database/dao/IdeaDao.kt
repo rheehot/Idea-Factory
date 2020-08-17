@@ -10,6 +10,9 @@ import kr.juyeop.data.database.entity.IdeaEntity
 @Dao
 interface IdeaDao : BaseDao<IdeaEntity>{
 
+    @Query("SELECT * FROM idea_table WHERE date = :date")
+    fun get(date : String) : Single<IdeaEntity>
+
     @Query("SELECT * FROM idea_table ORDER BY date DESC")
     fun getAll() : Single<List<IdeaEntity>>
 

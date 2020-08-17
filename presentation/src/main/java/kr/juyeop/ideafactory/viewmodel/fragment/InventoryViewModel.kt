@@ -2,7 +2,6 @@ package kr.juyeop.ideafactory.viewmodel.fragment
 
 import androidx.lifecycle.MutableLiveData
 import io.reactivex.observers.DisposableSingleObserver
-import kr.juyeop.data.util.IdeaData
 import kr.juyeop.domain.model.datalab.request.KeywordGroupsModel
 import kr.juyeop.domain.model.datalab.response.DataLabModel
 import kr.juyeop.domain.model.idea.IdeaModel
@@ -40,7 +39,7 @@ class InventoryViewModel(
         getDataLab()
     }
 
-    fun getAll() {
+    fun getAllIdea() {
         addDisposable(getAllUseCase.buildUseCaseObservable(), object : DisposableSingleObserver<List<IdeaModel>>(){
             override fun onSuccess(t: List<IdeaModel>) {
                 if (t.isEmpty()) ideaList.addAll(listOf(IdeaModel(null, null, null, null, null, System.currentTimeMillis().toString())))
@@ -55,9 +54,6 @@ class InventoryViewModel(
     }
     fun addIdea(){
         addIdeaEvent.call()
-    }
-    fun saveIdea(){
-        IdeaData.saveIdea(ideaList[ideaAdapter.clickPosition.value!!])
     }
 
     fun getDataLab() {

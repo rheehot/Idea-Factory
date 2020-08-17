@@ -12,6 +12,8 @@ class IdeaDataSource (
     override val cache: IdeaCache
 ) : BaseDataSource<Any, IdeaCache>(){
 
+    fun get(date: String) : Single<IdeaEntity> = cache.get(date)
+
     fun getAll() : Single<List<IdeaEntity>> = cache.getAll()
 
     fun insert(ideaEntitiy: IdeaEntity) : Completable = cache.insert(ideaEntitiy)

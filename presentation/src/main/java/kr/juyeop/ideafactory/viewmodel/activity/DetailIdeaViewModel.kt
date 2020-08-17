@@ -1,10 +1,52 @@
 package kr.juyeop.ideafactory.viewmodel.activity
 
-import kr.juyeop.domain.usecase.GetAllUseCase
+import androidx.lifecycle.MutableLiveData
+import io.reactivex.observers.DisposableSingleObserver
+import kr.juyeop.domain.model.idea.IdeaModel
+import kr.juyeop.domain.usecase.DeleteUseCase
+import kr.juyeop.domain.usecase.GetUseCase
 import kr.juyeop.ideafactory.base.BaseViewModel
+import kr.juyeop.ideafactory.widget.SingleLiveEvent
+import java.text.SimpleDateFormat
+import java.util.*
 
 class DetailIdeaViewModel(
-    private val getAllUseCase: GetAllUseCase
+    private val getUseCase: GetUseCase,
+    private val deleteUseCase: DeleteUseCase
 ) : BaseViewModel() {
 
+    var ideaDate = MutableLiveData<String>()
+
+    var title = MutableLiveData<String>()
+    var userInfo = MutableLiveData<String>()
+    var background = MutableLiveData<String>()
+    var content = MutableLiveData<String>()
+    var effect = MutableLiveData<String>()
+
+    val onBackEvent = SingleLiveEvent<Unit>()
+
+    fun getIdea() {
+        addDisposable(getUseCase.buildUseCaseObservable(GetUseCase.Params(ideaDate.value.toString())), object : DisposableSingleObserver<IdeaModel>(){
+            override fun onSuccess(t: IdeaModel) {
+                val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault())
+
+                title.value = t.title
+                userInfo.value = "${t.name} | ${simpleDateFormat.format(t.date!!.toLong())}"
+                background.value = t.background
+                content.value = t.content
+                effect.value = t.effect
+            }
+            override fun onError(e: Throwable) {
+                e.printStackTrace()
+            }
+        })
+    }
+
+    fun deleteIdea() {
+
+    }
+
+    fun backSpace(){
+        onBackEvent.call()
+    }
 }

@@ -4,6 +4,7 @@ import kr.juyeop.domain.usecase.*
 import org.koin.dsl.module
 
 val useCaseModule = module {
+    single { GetUseCase(get()) }
     single { GetAllUseCase(get()) }
     single { InsertUseCase(get()) }
     single { UpdateUseCase(get()) }
