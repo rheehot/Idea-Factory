@@ -42,8 +42,8 @@
                             android:id="@+id/back_imageView"
                             android:layout_width="25dp"
                             android:layout_height="25dp"
-                            android:tint="@android:color/black"
                             android:onClick="@{() -> viewModel.backSpace()}"
+                            app:tint="@android:color/black"
                             app:srcCompat="@drawable/ic_baseline_arrow_back_24"
                             tools:ignore="ContentDescription" />
 
@@ -282,7 +282,7 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@={viewModel.ideaEffect}"/>
+                            android:text="@={viewModel.ideaExpect}"/>
 
                     </com.google.android.material.textfield.TextInputLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>

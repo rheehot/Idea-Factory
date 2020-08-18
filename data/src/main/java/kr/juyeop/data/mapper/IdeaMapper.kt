@@ -12,7 +12,7 @@ class IdeaMapper : BaseEntityMapper<IdeaModel, IdeaEntity>{
             entity.background,
             entity.title,
             entity.content,
-            entity.effect,
+            entity.expect,
             entity.date
         )
     }
@@ -23,7 +23,7 @@ class IdeaMapper : BaseEntityMapper<IdeaModel, IdeaEntity>{
             model.background,
             model.title,
             model.content,
-            model.effect,
+            model.expect,
             model.date!!
         )
     }

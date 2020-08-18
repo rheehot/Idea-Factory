@@ -9,7 +9,7 @@ class UpdateUseCase(
 ) : ParamsUseCase<UpdateUseCase.Params, Completable>() {
 
     override fun buildUseCaseObservable(params: Params): Completable {
-        return ideaRepository.update(params.name, params.background, params.title, params.content, params.effect, params.date)
+        return ideaRepository.update(params.name, params.background, params.title, params.content, params.expect, params.date)
     }
 
     data class Params(
@@ -17,7 +17,7 @@ class UpdateUseCase(
         val title : String,
         val background : String,
         val content : String,
-        val effect : String,
+        val expect : String,
         val date : String
     )
 }

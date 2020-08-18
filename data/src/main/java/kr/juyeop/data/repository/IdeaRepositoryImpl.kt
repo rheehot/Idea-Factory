@@ -2,7 +2,6 @@ package kr.juyeop.data.repository
 
 import io.reactivex.Completable
 import io.reactivex.Single
-import kr.juyeop.data.database.entity.IdeaEntity
 import kr.juyeop.data.datasource.IdeaDataSource
 import kr.juyeop.data.mapper.IdeaMapper
 import kr.juyeop.domain.model.idea.IdeaModel
@@ -24,8 +23,8 @@ class IdeaRepositoryImpl (
 
     override fun insert(ideaModel: IdeaModel): Completable = ideaDataSource.insert(ideaMapper.mapToEntity(ideaModel))
 
-    override fun update(name: String, background: String, title: String, content: String, effect: String, date: String): Completable {
-        return ideaDataSource.update(name, background, title, content, effect, date)
+    override fun update(name: String, background: String, title: String, content: String, expect: String, date: String): Completable {
+        return ideaDataSource.update(name, background, title, content, expect, date)
     }
 
     override fun delete(date: String): Completable {

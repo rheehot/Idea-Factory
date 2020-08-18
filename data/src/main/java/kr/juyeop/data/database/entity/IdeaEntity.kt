@@ -8,5 +8,5 @@ data class IdeaEntity(
     val background: String?,
     val title: String?,
     val content: String?,
-    val effect: String?,
+    val expect: String?,
     val date: String)

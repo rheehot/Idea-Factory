@@ -22,7 +22,7 @@ class EditIdeaViewModel(
     val ideaTitle = MutableLiveData<String>()
     val ideaBackground = MutableLiveData<String>()
     val ideaContent = MutableLiveData<String>()
-    val ideaEffect = MutableLiveData<String>()
+    val ideaExpect = MutableLiveData<String>()
 
     val onFailEvent = SingleLiveEvent<Unit>()
     val onCompleteEvent = SingleLiveEvent<Unit>()
@@ -35,7 +35,7 @@ class EditIdeaViewModel(
                 ideaTitle.value = t.title
                 ideaBackground.value = t.background
                 ideaContent.value = t.content
-                ideaEffect.value = t.effect
+                ideaExpect.value = t.expect
             }
             override fun onError(e: Throwable) {
                 onErrorEvent.call()
@@ -51,12 +51,12 @@ class EditIdeaViewModel(
         } else onFailEvent.call()
     }
     fun checkData() : Boolean{
-        return if(ideaTitle.value.isNullOrEmpty() || ideaBackground.value.isNullOrEmpty() || ideaContent.value.isNullOrEmpty() || ideaEffect.value.isNullOrEmpty()) false
-        else ideaTitle.value?.length!! <= 15 && ideaBackground.value?.length!! <= 100 && ideaContent.value?.length!! <= 100 && ideaEffect.value?.length!! <= 100
+        return if(ideaTitle.value.isNullOrEmpty() || ideaBackground.value.isNullOrEmpty() || ideaContent.value.isNullOrEmpty() || ideaExpect.value.isNullOrEmpty()) false
+        else ideaTitle.value?.length!! <= 15 && ideaBackground.value?.length!! <= 100 && ideaContent.value?.length!! <= 100 && ideaExpect.value?.length!! <= 100
     }
     fun editIdea(user: String) {
         addDisposable(updateUseCase.buildUseCaseObservable(
-            UpdateUseCase.Params(user, ideaTitle.value!!, ideaBackground.value!!, ideaContent.value!!, ideaEffect.value!!, ideaDate.value!!)), object : DisposableCompletableObserver() {
+            UpdateUseCase.Params(user, ideaTitle.value!!, ideaBackground.value!!, ideaContent.value!!, ideaExpect.value!!, ideaDate.value!!)), object : DisposableCompletableObserver() {
             override fun onComplete() {
                 onCompleteEvent.call()
             }

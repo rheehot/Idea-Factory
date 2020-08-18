@@ -17,8 +17,8 @@ class IdeaCache(application : Application) : BaseCache(application){
 
     fun insert(ideaEntitiy: IdeaEntity) : Completable = ideaDao.insert(ideaEntitiy)
 
-    fun update(name : String, background : String, title : String, content : String, effect : String, date : String) : Completable {
-        return ideaDao.update(name, background, title, content, effect, date)
+    fun update(name : String, background : String, title : String, content : String, expect : String, date : String) : Completable {
+        return ideaDao.update(name, background, title, content, expect, date)
     }
 
     fun delete(date : String) : Completable {

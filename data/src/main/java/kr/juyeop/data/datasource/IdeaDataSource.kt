@@ -5,7 +5,6 @@ import io.reactivex.Single
 import kr.juyeop.data.base.BaseDataSource
 import kr.juyeop.data.database.cache.IdeaCache
 import kr.juyeop.data.database.entity.IdeaEntity
-import java.util.*
 
 class IdeaDataSource (
     override val remote : Any,
@@ -18,8 +17,8 @@ class IdeaDataSource (
 
     fun insert(ideaEntitiy: IdeaEntity) : Completable = cache.insert(ideaEntitiy)
 
-    fun update(name : String, background : String, title : String, content : String, effect : String, date : String) : Completable {
-        return cache.update(name, background, title, content, effect, date)
+    fun update(name : String, background : String, title : String, content : String, expect : String, date : String) : Completable {
+        return cache.update(name, background, title, content, expect, date)
     }
 
     fun delete(date : String) : Completable {

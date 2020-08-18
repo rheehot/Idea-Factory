@@ -12,7 +12,7 @@ interface IdeaRepository{
 
     fun insert(ideaModel: IdeaModel) : Completable
 
-    fun update(name : String, background : String, title : String, content : String, effect : String, date : String) : Completable
+    fun update(name : String, background : String, title : String, content : String, expect : String, date : String) : Completable
 
     fun delete(date : String) : Completable
 }

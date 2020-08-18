@@ -22,7 +22,7 @@ class DetailIdeaViewModel(
     var userInfo = MutableLiveData<String>()
     var background = MutableLiveData<String>()
     var content = MutableLiveData<String>()
-    var effect = MutableLiveData<String>()
+    var expect = MutableLiveData<String>()
 
     val onErrorEvent = SingleLiveEvent<Unit>()
     val onCompleteEvent = SingleLiveEvent<Unit>()
@@ -37,7 +37,7 @@ class DetailIdeaViewModel(
                 userInfo.value = "${t.name} | ${simpleDateFormat.format(t.date!!.toLong())}"
                 background.value = t.background
                 content.value = t.content
-                effect.value = t.effect
+                expect.value = t.expect
             }
             override fun onError(e: Throwable) {
                 onErrorEvent.call()
