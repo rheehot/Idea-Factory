@@ -7,3 +7,7 @@ import androidx.fragment.app.Fragment
 fun Fragment.startActivityWithFinish(context : Context, activity: Class<*>){
     startActivity(Intent(context, activity).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP))
 }
+
+fun Fragment.startActivityWithExtra(intent: Intent) {
+    startActivity(intent)
+}

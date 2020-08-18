@@ -10,7 +10,7 @@ class NameViewModel(
     val context: Context
 ): BaseViewModel() {
 
-    val factoryUser = MutableLiveData<String>()
+    val userName = MutableLiveData<String>()
     val factoryName = MutableLiveData<String>()
 
     val onFailEvent = SingleLiveEvent<Unit>()
@@ -18,14 +18,14 @@ class NameViewModel(
 
     fun completeEvent() {
         if(checkData()) {
-            SharedPreferencesManager.setFactoryUser(context, factoryUser.value.toString())
+            SharedPreferencesManager.setFactoryUser(context, userName.value.toString())
             SharedPreferencesManager.setFactoryName(context, factoryName.value.toString())
             onSuccessEvent.call()
         } else onFailEvent.call()
     }
 
     fun checkData() : Boolean{
-        return if(factoryUser.value.isNullOrEmpty() || factoryName.value.isNullOrEmpty()) false
-        else factoryUser.value?.length!! <= 10 && factoryName.value?.length!! <= 15
+        return if(userName.value.isNullOrEmpty() || factoryName.value.isNullOrEmpty()) false
+        else userName.value?.length!! <= 10 && factoryName.value?.length!! <= 15
     }
 }

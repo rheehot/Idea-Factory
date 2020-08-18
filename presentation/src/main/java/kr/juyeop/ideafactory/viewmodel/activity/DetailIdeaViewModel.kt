@@ -24,11 +24,12 @@ class DetailIdeaViewModel(
     var content = MutableLiveData<String>()
     var effect = MutableLiveData<String>()
 
+    val onErrorEvent = SingleLiveEvent<Unit>()
+    val onCompleteEvent = SingleLiveEvent<Unit>()
     val onBackEvent = SingleLiveEvent<Unit>()
-    val onDeleteEvent = SingleLiveEvent<Unit>()
 
     fun getIdea() {
-        addDisposable(getUseCase.buildUseCaseObservable(GetUseCase.Params(ideaDate.value.toString())), object : DisposableSingleObserver<IdeaModel>(){
+        addDisposable(getUseCase.buildUseCaseObservable(GetUseCase.Params(ideaDate.value!!)), object : DisposableSingleObserver<IdeaModel>(){
             override fun onSuccess(t: IdeaModel) {
                 val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault())
 
@@ -39,6 +40,7 @@ class DetailIdeaViewModel(
                 effect.value = t.effect
             }
             override fun onError(e: Throwable) {
+                onErrorEvent.call()
                 e.printStackTrace()
             }
         })
@@ -47,9 +49,10 @@ class DetailIdeaViewModel(
     fun deleteIdea() {
         addDisposable(deleteUseCase.buildUseCaseObservable(DeleteUseCase.Params(ideaDate.value.toString())), object : DisposableCompletableObserver() {
             override fun onComplete() {
-                onDeleteEvent.call()
+                onCompleteEvent.call()
             }
             override fun onError(e: Throwable) {
+                onErrorEvent.call()
                 e.printStackTrace()
             }
         })

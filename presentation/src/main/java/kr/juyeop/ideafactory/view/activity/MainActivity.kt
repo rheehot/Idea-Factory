@@ -30,10 +30,10 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
         fragmentTransaction.replace(R.id.frameLayout, inventoryFragment).commitAllowingStateLoss()
 
         factoryName_textView.text = SharedPreferencesManager.getFactoryName(applicationContext)
-        selectedEvent()
+        tabSelectedEvent()
     }
 
-    fun selectedEvent(){
+    fun tabSelectedEvent(){
         tabs.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
             override fun onTabSelected(tab: TabLayout.Tab) {
                 val fragmentTransaction = supportFragmentManager.beginTransaction()
@@ -50,6 +50,6 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
     }
 
     override fun onBackPressed() {
-        ActivityCompat.finishAffinity(this)
+        ActivityCompat.finishAffinity(this@MainActivity)
     }
 }

@@ -26,13 +26,13 @@ class InventoryViewModel(
     val fourthGroup = MutableLiveData<String>()
     val lastUpdate = MutableLiveData<String>()
 
+    lateinit var dataLabModel : DataLabModel
+
     val ideaList = ArrayList<IdeaModel>()
     val ideaAdapter = IdeaAdapter()
 
     val addIdeaEvent = SingleLiveEvent<Unit>()
-    val dataLabEvent = SingleLiveEvent<Unit>()
-
-    lateinit var dataLabModel : DataLabModel
+    val onSuccessEvent = SingleLiveEvent<Unit>()
 
     init{
         ideaAdapter.setList(ideaList)
@@ -62,7 +62,7 @@ class InventoryViewModel(
             object : DisposableSingleObserver<DataLabModel>() {
                 override fun onSuccess(t: DataLabModel) {
                     dataLabModel = t
-                    dataLabEvent.call()
+                    onSuccessEvent.call()
                 }
                 override fun onError(e: Throwable) {
                     e.printStackTrace()
@@ -117,10 +117,10 @@ class InventoryViewModel(
     fun setDataLab() {
         for (i in 0..3) {
             when(i) {
-                0 -> firstGroup.value = dataLabModel.results.get(i).title
-                1 -> secondGroup.value = dataLabModel.results.get(i).title
-                2 -> thirdGroup.value = dataLabModel.results.get(i).title
-                3 -> fourthGroup.value = dataLabModel.results.get(i).title
+                0 -> firstGroup.value = dataLabModel.results[i].title
+                1 -> secondGroup.value = dataLabModel.results[i].title
+                2 -> thirdGroup.value = dataLabModel.results[i].title
+                3 -> fourthGroup.value = dataLabModel.results[i].title
             }
         }
         lastUpdate.value = "${dataLabModel.endDate} 동기화"

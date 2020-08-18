@@ -1,6 +1,6 @@
 package kr.juyeop.ideafactory.viewmodel.activity
 
-import android.app.Application
+import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import io.reactivex.observers.DisposableCompletableObserver
 import kr.juyeop.data.sharedpreferences.SharedPreferencesManager
@@ -10,14 +10,14 @@ import kr.juyeop.ideafactory.base.BaseViewModel
 import kr.juyeop.ideafactory.widget.SingleLiveEvent
 
 class AddIdeaViewModel(
-    private val insertUsecase: InsertUseCase,
-    private val application: Application
+    private val context: Context,
+    private val insertUsecase: InsertUseCase
 ) : BaseViewModel(){
 
     val ideaTitle = MutableLiveData<String>()
     val ideaBackground = MutableLiveData<String>()
     val ideaContent = MutableLiveData<String>()
-    val ideaEffect = MutableLiveData<String>()
+    val ideaExpect = MutableLiveData<String>()
 
     val onFailEvent = SingleLiveEvent<Unit>()
     val onCompleteEvent = SingleLiveEvent<Unit>()
@@ -26,14 +26,14 @@ class AddIdeaViewModel(
 
     fun submit(){
         if(checkData()){
-            val user = SharedPreferencesManager.getFactoryUser(application)
+            val userName = SharedPreferencesManager.getFactoryUser(context)
             val date = System.currentTimeMillis()
             val ideaModel = IdeaModel(
-                user.toString(),
+                userName.toString(),
                 ideaBackground.value.toString(),
                 ideaTitle.value.toString(),
                 ideaContent.value.toString(),
-                ideaEffect.value.toString(),
+                ideaExpect.value.toString(),
                 date.toString()
             )
 
@@ -42,8 +42,8 @@ class AddIdeaViewModel(
     }
 
     fun checkData() : Boolean{
-        return if(ideaTitle.value.isNullOrEmpty() || ideaBackground.value.isNullOrEmpty() || ideaContent.value.isNullOrEmpty() || ideaEffect.value.isNullOrEmpty()) false
-        else ideaTitle.value?.length!! <= 15 && ideaBackground.value?.length!! <= 100 && ideaContent.value?.length!! <= 100 && ideaEffect.value?.length!! <= 100
+        return if(ideaTitle.value.isNullOrEmpty() || ideaBackground.value.isNullOrEmpty() || ideaContent.value.isNullOrEmpty() || ideaExpect.value.isNullOrEmpty()) false
+        else ideaTitle.value?.length!! <= 15 && ideaBackground.value?.length!! <= 100 && ideaContent.value?.length!! <= 100 && ideaExpect.value?.length!! <= 100
     }
 
     fun insertIdea(ideaModel : IdeaModel){
@@ -52,6 +52,7 @@ class AddIdeaViewModel(
                 onCompleteEvent.call()
             }
             override fun onError(e: Throwable) {
+                e.printStackTrace()
                 onErrorEvent.call()
             }
         })

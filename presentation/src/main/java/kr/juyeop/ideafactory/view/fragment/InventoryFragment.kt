@@ -8,6 +8,7 @@ import kr.juyeop.ideafactory.databinding.FragmentInventoryBinding
 import kr.juyeop.ideafactory.view.activity.AddIdeaActivity
 import kr.juyeop.ideafactory.view.activity.DetailIdeaActivity
 import kr.juyeop.ideafactory.viewmodel.fragment.InventoryViewModel
+import kr.juyeop.ideafactory.widget.extension.startActivityWithExtra
 import kr.juyeop.ideafactory.widget.extension.startActivityWithFinish
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
@@ -23,13 +24,13 @@ class InventoryFragment : BaseFragment<FragmentInventoryBinding, InventoryViewMo
                 startActivityWithFinish(binding.root.context, AddIdeaActivity::class.java)
             })
             ideaAdapter.clickPosition.observe(this@InventoryFragment, Observer {
-                startActivity(Intent(activity!!.applicationContext, DetailIdeaActivity::class.java).putExtra("date", ideaAdapter.ideaList[it].date))
+                startActivityWithExtra(Intent(activity!!.applicationContext, DetailIdeaActivity::class.java).putExtra("date", ideaAdapter.ideaList[it].date))
             })
-            dataLabEvent.observe(this@InventoryFragment, Observer {
-                bootstrapProgressBar.progress = dataLabModel.results.get(0).data.get(0).ratio.toDouble().toInt()
-                bootstrapProgressBar2.progress = dataLabModel.results.get(1).data.get(0).ratio.toDouble().toInt()
-                bootstrapProgressBar3.progress = dataLabModel.results.get(2).data.get(0).ratio.toDouble().toInt()
-                bootstrapProgressBar4.progress = dataLabModel.results.get(3).data.get(0).ratio.toDouble().toInt()
+            onSuccessEvent.observe(this@InventoryFragment, Observer {
+                bootstrapProgressBar.progress = dataLabModel.results[0].data[0].ratio.toDouble().toInt()
+                bootstrapProgressBar2.progress = dataLabModel.results[1].data[0].ratio.toDouble().toInt()
+                bootstrapProgressBar3.progress = dataLabModel.results[2].data[0].ratio.toDouble().toInt()
+                bootstrapProgressBar4.progress = dataLabModel.results[3].data[0].ratio.toDouble().toInt()
                 setDataLab()
             })
         }

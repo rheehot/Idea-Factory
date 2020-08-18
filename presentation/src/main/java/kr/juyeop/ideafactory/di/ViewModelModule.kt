@@ -17,7 +17,7 @@ val viewModelModule = module {
     viewModel { InventoryViewModel(get(), get()) }
     viewModel { DetailIdeaViewModel(get(), get()) }
     viewModel { EditIdeaViewModel(androidApplication(), get(), get()) }
-    viewModel { AddIdeaViewModel(get(), androidApplication()) }
+    viewModel { AddIdeaViewModel(androidApplication(), get()) }
 
     viewModel { ProductViewModel() }
     viewModel { TradingViewModel() }

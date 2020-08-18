@@ -58,7 +58,8 @@
                     android:id="@+id/profile_imageView"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:src="@drawable/icon_profile" />
+                    android:src="@drawable/icon_profile"
+                    tools:ignore="ContentDescription" />
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>

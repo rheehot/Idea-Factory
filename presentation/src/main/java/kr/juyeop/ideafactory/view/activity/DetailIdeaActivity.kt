@@ -12,7 +12,6 @@ import kr.juyeop.ideafactory.base.BaseActivity
 import kr.juyeop.ideafactory.databinding.ActivityDetailIdeaBinding
 import kr.juyeop.ideafactory.viewmodel.activity.DetailIdeaViewModel
 import kr.juyeop.ideafactory.widget.extension.startActivityWithFinish
-import kr.juyeop.ideafactory.widget.extension.toast
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
 class DetailIdeaActivity : BaseActivity<ActivityDetailIdeaBinding, DetailIdeaViewModel>() {
@@ -29,12 +28,15 @@ class DetailIdeaActivity : BaseActivity<ActivityDetailIdeaBinding, DetailIdeaVie
 
     override fun observerViewModel() {
         with(viewModel) {
-            onBackEvent.observe(this@DetailIdeaActivity, Observer {
+            onErrorEvent.observe(this@DetailIdeaActivity, Observer {
+                Toast.makeText(applicationContext, "내부 DB 처리 과정에서 오류가 발생했습니다.", Toast.LENGTH_SHORT).show()
+            })
+            onCompleteEvent.observe(this@DetailIdeaActivity, Observer {
+                Toast.makeText(applicationContext, "정상적으로 아이디어를 삭제하였습니다.", Toast.LENGTH_SHORT).show()
                 startActivityWithFinish(applicationContext, MainActivity::class.java)
             })
-            onDeleteEvent.observe(this@DetailIdeaActivity, Observer {
-                Toast.makeText(applicationContext, "아이디어를 정상적으로 삭제하였습니다.", Toast.LENGTH_SHORT).show()
-                startActivityWithFinish(applicationContext, MainActivity::class.java)
+            onBackEvent.observe(this@DetailIdeaActivity, Observer {
+                onBackPressed()
             })
         }
     }
@@ -45,8 +47,8 @@ class DetailIdeaActivity : BaseActivity<ActivityDetailIdeaBinding, DetailIdeaVie
         builder.setTitle("아이디어 삭제")
         builder.setMessage("정말로 아이디어를 삭제하시겠습니까?")
 
-        builder.setPositiveButton("삭제"){ dialog, which -> viewModel.deleteIdea() }
-        builder.setNeutralButton("취소"){ dialog, which -> }
+        builder.setPositiveButton("삭제"){ _, _ -> viewModel.deleteIdea() }
+        builder.setNegativeButton("취소"){ _, _ -> }
 
         builder.show()
     }

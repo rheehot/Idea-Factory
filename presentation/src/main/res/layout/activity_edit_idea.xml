@@ -44,7 +44,8 @@
                             android:layout_height="25dp"
                             android:tint="@android:color/black"
                             android:onClick="@{() -> viewModel.backSpace()}"
-                            app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
+                            app:srcCompat="@drawable/ic_baseline_arrow_back_24"
+                            tools:ignore="ContentDescription" />
 
                         <TextView
                             android:id="@+id/title_idea_product"
@@ -301,8 +302,8 @@
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
-                        android:text="수정하기"
-                        android:onClick="@{() -> viewModel.submit()}"
+                        android:text="@string/text_edit"
+                        android:onClick="@{() -> viewModel.edit()}"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent" />

@@ -38,23 +38,22 @@ class EditIdeaViewModel(
                 ideaEffect.value = t.effect
             }
             override fun onError(e: Throwable) {
+                onErrorEvent.call()
                 e.printStackTrace()
             }
         })
     }
 
-    fun submit() {
+    fun edit() {
         if(checkData()){
             val user = SharedPreferencesManager.getFactoryUser(context)
             editIdea(user!!)
         } else onFailEvent.call()
     }
-
     fun checkData() : Boolean{
         return if(ideaTitle.value.isNullOrEmpty() || ideaBackground.value.isNullOrEmpty() || ideaContent.value.isNullOrEmpty() || ideaEffect.value.isNullOrEmpty()) false
         else ideaTitle.value?.length!! <= 15 && ideaBackground.value?.length!! <= 100 && ideaContent.value?.length!! <= 100 && ideaEffect.value?.length!! <= 100
     }
-
     fun editIdea(user: String) {
         addDisposable(updateUseCase.buildUseCaseObservable(
             UpdateUseCase.Params(user, ideaTitle.value!!, ideaBackground.value!!, ideaContent.value!!, ideaEffect.value!!, ideaDate.value!!)), object : DisposableCompletableObserver() {
@@ -63,6 +62,7 @@ class EditIdeaViewModel(
             }
             override fun onError(e: Throwable) {
                 onErrorEvent.call()
+                e.printStackTrace()
             }
         })
     }
