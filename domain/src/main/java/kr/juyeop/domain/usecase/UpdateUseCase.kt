@@ -14,8 +14,8 @@ class UpdateUseCase(
 
     data class Params(
         val name : String,
-        val background : String,
         val title : String,
+        val background : String,
         val content : String,
         val effect : String,
         val date : String

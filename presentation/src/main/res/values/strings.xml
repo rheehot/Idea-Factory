@@ -14,6 +14,7 @@
     <string name="title_product">공장 설립</string>
     <string name="title_idea_product">아이디어 생산</string>
     <string name="title_idea_detail">아이디어 상세</string>
+    <string name="title_idea_edit">아이디어 수정</string>
 
     <!--Text-->
     <string name="text_product_factory">여러분의 공장을 설계하세요!</string>

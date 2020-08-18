@@ -1,6 +1,7 @@
 package kr.juyeop.ideafactory.viewmodel.activity
 
 import androidx.lifecycle.MutableLiveData
+import io.reactivex.observers.DisposableCompletableObserver
 import io.reactivex.observers.DisposableSingleObserver
 import kr.juyeop.domain.model.idea.IdeaModel
 import kr.juyeop.domain.usecase.DeleteUseCase
@@ -24,6 +25,7 @@ class DetailIdeaViewModel(
     var effect = MutableLiveData<String>()
 
     val onBackEvent = SingleLiveEvent<Unit>()
+    val onDeleteEvent = SingleLiveEvent<Unit>()
 
     fun getIdea() {
         addDisposable(getUseCase.buildUseCaseObservable(GetUseCase.Params(ideaDate.value.toString())), object : DisposableSingleObserver<IdeaModel>(){
@@ -43,7 +45,14 @@ class DetailIdeaViewModel(
     }
 
     fun deleteIdea() {
-
+        addDisposable(deleteUseCase.buildUseCaseObservable(DeleteUseCase.Params(ideaDate.value.toString())), object : DisposableCompletableObserver() {
+            override fun onComplete() {
+                onDeleteEvent.call()
+            }
+            override fun onError(e: Throwable) {
+                e.printStackTrace()
+            }
+        })
     }
 
     fun backSpace(){

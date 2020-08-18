@@ -1,16 +1,18 @@
 package kr.juyeop.ideafactory.view.activity
 
 import android.app.AlertDialog
-import android.util.Log
+import android.content.Intent
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import kotlinx.android.synthetic.main.activity_detail_idea.*
-import kotlinx.android.synthetic.main.activity_main.*
 import kr.juyeop.ideafactory.R
 import kr.juyeop.ideafactory.base.BaseActivity
 import kr.juyeop.ideafactory.databinding.ActivityDetailIdeaBinding
 import kr.juyeop.ideafactory.viewmodel.activity.DetailIdeaViewModel
+import kr.juyeop.ideafactory.widget.extension.startActivityWithFinish
+import kr.juyeop.ideafactory.widget.extension.toast
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
 class DetailIdeaActivity : BaseActivity<ActivityDetailIdeaBinding, DetailIdeaViewModel>() {
@@ -28,25 +30,25 @@ class DetailIdeaActivity : BaseActivity<ActivityDetailIdeaBinding, DetailIdeaVie
     override fun observerViewModel() {
         with(viewModel) {
             onBackEvent.observe(this@DetailIdeaActivity, Observer {
-                onBackPressed()
+                startActivityWithFinish(applicationContext, MainActivity::class.java)
+            })
+            onDeleteEvent.observe(this@DetailIdeaActivity, Observer {
+                Toast.makeText(applicationContext, "아이디어를 정상적으로 삭제하였습니다.", Toast.LENGTH_SHORT).show()
+                startActivityWithFinish(applicationContext, MainActivity::class.java)
             })
         }
     }
 
     fun showDeleteDialog() {
-        val alertDialog = AlertDialog.Builder(this)
-        alertDialog.setTitle("아이디어 삭제")
-        alertDialog.setMessage("아이디어를 정말 삭제하시겠습니까?")
+        val builder = AlertDialog.Builder(this)
 
-        alertDialog.setPositiveButton("삭제") { dialog, which ->
-            Log.e("test", "삭제 버튼 클릭")
-        }
+        builder.setTitle("아이디어 삭제")
+        builder.setMessage("정말로 아이디어를 삭제하시겠습니까?")
 
-        alertDialog.setNegativeButton("취소") { dialog, which ->
-            Log.e("test", "취소 버튼 클릭")
-        }
+        builder.setPositiveButton("삭제"){ dialog, which -> viewModel.deleteIdea() }
+        builder.setNeutralButton("취소"){ dialog, which -> }
 
-        alertDialog.show()
+        builder.show()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -55,8 +57,13 @@ class DetailIdeaActivity : BaseActivity<ActivityDetailIdeaBinding, DetailIdeaVie
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
+            R.id.editIdea -> startActivity(Intent(applicationContext, EditIdeaActivity::class.java).putExtra("date", viewModel.ideaDate.value))
             R.id.deleteIdea -> showDeleteDialog()
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onBackPressed() {
+        startActivityWithFinish(applicationContext, MainActivity::class.java)
     }
 }

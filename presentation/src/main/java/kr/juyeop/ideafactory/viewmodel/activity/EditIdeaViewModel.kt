@@ -1,18 +1,23 @@
 package kr.juyeop.ideafactory.viewmodel.activity
 
-import android.app.Application
+import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import io.reactivex.observers.DisposableCompletableObserver
+import io.reactivex.observers.DisposableSingleObserver
 import kr.juyeop.data.sharedpreferences.SharedPreferencesManager
 import kr.juyeop.domain.model.idea.IdeaModel
-import kr.juyeop.domain.usecase.InsertUseCase
+import kr.juyeop.domain.usecase.GetUseCase
+import kr.juyeop.domain.usecase.UpdateUseCase
 import kr.juyeop.ideafactory.base.BaseViewModel
 import kr.juyeop.ideafactory.widget.SingleLiveEvent
 
-class AddIdeaViewModel(
-    private val insertUsecase: InsertUseCase,
-    private val application: Application
-) : BaseViewModel(){
+class EditIdeaViewModel(
+    val context: Context,
+    val getUseCase: GetUseCase,
+    val updateUseCase: UpdateUseCase
+) : BaseViewModel() {
+
+    val ideaDate = MutableLiveData<String>()
 
     val ideaTitle = MutableLiveData<String>()
     val ideaBackground = MutableLiveData<String>()
@@ -24,20 +29,24 @@ class AddIdeaViewModel(
     val onErrorEvent = SingleLiveEvent<Unit>()
     val onBackEvent = SingleLiveEvent<Unit>()
 
-    fun submit(){
-        if(checkData()){
-            val user = SharedPreferencesManager.getFactoryUser(application)
-            val date = System.currentTimeMillis()
-            val ideaModel = IdeaModel(
-                user.toString(),
-                ideaBackground.value.toString(),
-                ideaTitle.value.toString(),
-                ideaContent.value.toString(),
-                ideaEffect.value.toString(),
-                date.toString()
-            )
+    fun getIdea() {
+        addDisposable(getUseCase.buildUseCaseObservable(GetUseCase.Params(ideaDate.value.toString())), object : DisposableSingleObserver<IdeaModel>() {
+            override fun onSuccess(t: IdeaModel) {
+                ideaTitle.value = t.title
+                ideaBackground.value = t.background
+                ideaContent.value = t.content
+                ideaEffect.value = t.effect
+            }
+            override fun onError(e: Throwable) {
+                e.printStackTrace()
+            }
+        })
+    }
 
-            insertIdea(ideaModel)
+    fun submit() {
+        if(checkData()){
+            val user = SharedPreferencesManager.getFactoryUser(context)
+            editIdea(user!!)
         } else onFailEvent.call()
     }
 
@@ -46,8 +55,9 @@ class AddIdeaViewModel(
         else ideaTitle.value?.length!! <= 15 && ideaBackground.value?.length!! <= 100 && ideaContent.value?.length!! <= 100 && ideaEffect.value?.length!! <= 100
     }
 
-    fun insertIdea(ideaModel : IdeaModel){
-        addDisposable(insertUsecase.buildUseCaseObservable(InsertUseCase.Paramas(ideaModel)), object : DisposableCompletableObserver(){
+    fun editIdea(user: String) {
+        addDisposable(updateUseCase.buildUseCaseObservable(
+            UpdateUseCase.Params(user, ideaTitle.value!!, ideaBackground.value!!, ideaContent.value!!, ideaEffect.value!!, ideaDate.value!!)), object : DisposableCompletableObserver() {
             override fun onComplete() {
                 onCompleteEvent.call()
             }
@@ -57,7 +67,7 @@ class AddIdeaViewModel(
         })
     }
 
-    fun backSpace(){
+    fun backSpace() {
         onBackEvent.call()
     }
 }
